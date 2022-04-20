@@ -5,24 +5,7 @@ import Card from '../../components/Card';
 
 import TokenSymbol from '../../components/TokenSymbol';
 import useLpStats from '../../hooks/useLpStats';
-import { makeStyles } from '@material-ui/core/styles';
 import useCashStat from '../../hooks/useCashPriceInEstimatedTWAP.ts';
-
-const useStyles = makeStyles((theme) => ({
-  third: {
-    width: '50% !important',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  fullheight: {
-    height: '100% !important',
-  },
-  '@media only screen and (max-width: 600px)': {
-    third: {
-      width: '100% !important',
-    },
-  },
-}));
 
 const CemeteryCard = () => {
   const tombFtmLpStats = useLpStats('SNO-JOE-LP');
@@ -31,7 +14,6 @@ const CemeteryCard = () => {
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
   const tshareLPStats = useMemo(() => (tShareFtmLpStats ? tShareFtmLpStats : null), [tShareFtmLpStats]);
   const snoSnoShareLPStats = useMemo(() => (snoSnoShareLpStats ? snoSnoShareLpStats : null), [snoSnoShareLpStats]);
-  const classes = useStyles();
   const snoPrice = useCashStat();
   return (
     <Grid container spacing={3}>
@@ -39,7 +21,7 @@ const CemeteryCard = () => {
         <Card>
           <CardContent align="center">
             <Typography variant="h5" component="h2">
-              SNO-JOE-LP
+              WLRS-UST-LP
             </Typography>
             <Box mt={1}>
               <TokenSymbol symbol="SNO-JOE-LP" />
@@ -47,8 +29,8 @@ const CemeteryCard = () => {
             <Box mt={2}></Box>
             <Box mt={2}>
               <span style={{ fontSize: '23px' }}>
-                {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} SNO /{' '}
-                {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} JOE
+                {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} WLRS /{' '}
+                {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} UST
               </span>
             </Box>
             <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
@@ -83,7 +65,7 @@ const CemeteryCard = () => {
         <Card>
           <CardContent align="center">
             <Typography variant="h5" component="h2">
-              SNOSHARE-JOE-LP
+              WSHARE-UST-LP
             </Typography>
             <Box mt={1}>
               <TokenSymbol symbol="SNOSHARE-JOE-LP" />
@@ -91,8 +73,8 @@ const CemeteryCard = () => {
             <Box mt={2}></Box>
             <Box mt={2}>
               <span style={{ fontSize: '23px' }}>
-                {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} SNOSHARE /{' '}
-                {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} JOE
+                {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} WSHARE /{' '}
+                {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} UST
               </span>
             </Box>
             <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
@@ -173,7 +155,7 @@ const CemeteryCard = () => {
         <Card>
           <CardContent align="center">
             <Typography variant="h5" component="h2">
-              SNO
+              WLRS
             </Typography>
             <Box mt={1}>
               <TokenSymbol symbol="SNO" />

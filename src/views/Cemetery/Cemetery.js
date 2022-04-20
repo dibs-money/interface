@@ -46,7 +46,7 @@ const Cemetery = () => {
                     gutterBottom
                     style={{ marginTop: '-25px', marginBottom: '35px' }}
                   >
-                    SNOSHARE Pools
+                    WSHARE Pools
                   </Typography>
                   <Alert variant="filled" severity="info" style={{ marginTop: '-25px', marginBottom: '35px' }}>
                     All below pools have ended. Please unstake and stake at{' '}
