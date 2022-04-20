@@ -71,13 +71,13 @@ const Pit: React.FC = () => {
                 <ExchangeCard
                   action="Purchase"
                   fromToken={tombFinance.TOMB}
-                  fromTokenName="SNO"
+                  fromTokenName="WLRS"
                   toToken={tombFinance.TBOND}
-                  toTokenName="SNOBOND"
+                  toTokenName="WBOND"
                   priceDesc={
                     !isBondPurchasable
-                      ? 'SNO is over peg'
-                      : getDisplayBalance(bondsPurchasable, 18, 4) + ' SNOBONDs available for purchase'
+                      ? 'WLRS is over peg'
+                      : getDisplayBalance(bondsPurchasable, 18, 4) + ' WBONDs available for purchase'
                   }
                   onExchange={handleBuyBonds}
                   disabled={!bondStat || isBondRedeemable}
@@ -85,14 +85,14 @@ const Pit: React.FC = () => {
               </StyledCardWrapper>
               <StyledStatsWrapper>
                 <ExchangeStat
-                  tokenName="SNO"
+                  tokenName="WLRS"
                   description="Last-Hour TWAP Price"
                   price={getDisplayBalance(cashPrice, 18, 4)}
                 />
                 <Spacer size="md" />
                 <ExchangeStat
-                  tokenName="SNOBOND"
-                  description="Current Price: (SNO)^2"
+                  tokenName="WBOND"
+                  description="Current Price: (WLRS)^2"
                   price={Number(bondStat?.tokenInFtm).toFixed(2) || '-'}
                 />
               </StyledStatsWrapper>
@@ -100,13 +100,13 @@ const Pit: React.FC = () => {
                 <ExchangeCard
                   action="Redeem"
                   fromToken={tombFinance.TBOND}
-                  fromTokenName="SNOBOND"
+                  fromTokenName="WBOND"
                   toToken={tombFinance.TOMB}
-                  toTokenName="SNO"
-                  priceDesc={`${getDisplayBalance(bondBalance)} SNOBONDs Available in wallet`}
+                  toTokenName="WLRS"
+                  priceDesc={`${getDisplayBalance(bondBalance)} WBONDs Available in wallet`}
                   onExchange={handleRedeemBonds}
                   disabled={!bondStat || bondBalance.eq(0) || !isBondRedeemable}
-                  disabledDescription={!isBondRedeemable ? `Enabled when SNO > ${BOND_REDEEM_PRICE} JOE` : null}
+                  disabledDescription={!isBondRedeemable ? `Enabled when WLRS > ${BOND_REDEEM_PRICE} UST` : null}
                 />
               </StyledCardWrapper>
             </StyledBond>
