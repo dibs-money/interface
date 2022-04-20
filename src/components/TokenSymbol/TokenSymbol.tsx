@@ -1,15 +1,15 @@
 import React from 'react';
 
 //Graveyard ecosystem logos
-import tombLogo from '../../assets/img/sno.png';
-import tShareLogo from '../../assets/img/snoshare.png';
+import tombLogo from '../../assets/img/wlrs-coin.png';
+import tShareLogo from '../../assets/img/wshare-coin.png';
 import tombLogoPNG from '../../assets/img/sno.png';
 import tShareLogoPNG from '../../assets/img/snoshare.png';
 import tBondLogo from '../../assets/img/snobond.png';
 
-import tombFtmLpLogo from '../../assets/img/sno-joe.png';
-import tshareFtmLpLogo from '../../assets/img/snoshare-joe.png';
-import snoSnoShareLpLogo from "../../assets/img/sno-snoshare.png";
+import tombFtmLpLogo from '../../assets/img/wlrs-coin.png';
+import tshareFtmLpLogo from '../../assets/img/wshare-coin.png';
+import snoSnoShareLpLogo from '../../assets/img/sno-snoshare.png';
 
 import wftmLogo from '../../assets/img/joe.png';
 import booLogo from '../../assets/img/spooky.png';
@@ -33,7 +33,7 @@ const logosBySymbol: { [title: string]: string } = {
   SNOSHARE: tShareLogoPNG,
   'SNO-JOE-LP': tombFtmLpLogo,
   'SNOSHARE-JOE-LP': tshareFtmLpLogo,
-  "SNO-SNOSHARE-LP": snoSnoShareLpLogo
+  'SNO-SNOSHARE-LP': snoSnoShareLpLogo,
 };
 
 type LogoProps = {
@@ -45,7 +45,15 @@ const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 90 }) => {
   if (!logosBySymbol[symbol]) {
     throw new Error(`Invalid Token Logo symbol: ${symbol}`);
   }
-  return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={size} height={size} />;
+  return (
+    <img
+      src={logosBySymbol[symbol]}
+      alt={`${symbol} Logo`}
+      width={size}
+      height={size}
+      style={{ borderRadius: '50%' }}
+    />
+  );
 };
 
 export default TokenSymbol;

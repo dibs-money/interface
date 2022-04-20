@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('415')]: {
       marginTop: '10px',
     },
+    backgroundImage: 'linear-gradient(0.25turn, #2C73D2, #00C9A7)',
   },
   tokenButton: {},
   '@media only screen and (max-width: 1200px)': {
@@ -153,17 +154,62 @@ const Home = () => {
                 <h1>Total Value Locked</h1>
                 <CountUp style={{ fontSize: '40px' }} end={TVL} separator="," prefix="$" />
               </div>
-              <img src={`${tvl}`} alt="tvl" style={{ width: 64, height: 64 }} />
+              <img src={`${tvl}`} alt="tvl" style={{ width: 128, height: 128 }} />
             </CardContent>
           </Card>
         </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <Card>
+            <CardContent align="center">
+              <h2>WLRS-UST LP</h2>
+              <Box mt={2}>
+                <TokenSymbol symbol="SNO-JOE-LP" />
+              </Box>
+              <Box mt={2}>
+                <span style={{ fontSize: '26px' }}>
+                  {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} WLRS /{' '}
+                  {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} UST
+                </span>
+              </Box>
+              <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
+              <span style={{ fontSize: '12px' }}>
+                Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
+                Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
+              </span>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Card>
+            <CardContent align="center">
+              <h2>WSHARE-UST LP</h2>
+              <Box mt={2}>
+                <TokenSymbol symbol="SNOSHARE-JOE-LP" />
+              </Box>
+              <Box mt={2}>
+                <span style={{ fontSize: '26px' }}>
+                  {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} WSHARE /{' '}
+                  {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} UST
+                </span>
+              </Box>
+              <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
+              <span style={{ fontSize: '12px' }}>
+                Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
+                <br />
+                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'}
+              </span>
+            </CardContent>
+          </Card>
+        </Grid>
+
         <Grid item xs={12} sm={3}>
           <Card>
             <CardContent style={{ position: 'relative' }}>
               <Box align="center" mt={2}>
                 <TokenSymbol symbol="WFTM" />
               </Box>
-              <h2 align="center">JOE</h2>
+              <h2 align="center">UST</h2>
               <p align="center">Current Price</p>
               <Box align="center">
                 <span style={{ fontSize: '30px' }}>${JOEPrice ? JOEPrice : '-.----'}</span>
@@ -205,7 +251,7 @@ const Home = () => {
               <Box align="center" mt={2}>
                 <TokenSymbol symbol="TOMB" />
               </Box>
-              <h2 align="center">SNO</h2>
+              <h2 align="center">WLRS</h2>
               <p align="center">Current Price</p>
               <Box align="center">
                 <span style={{ fontSize: '30px' }}>
@@ -246,15 +292,13 @@ const Home = () => {
             </CardContent>
           </Card>
         </Grid>
-
-        {/* TSHARE */}
         <Grid item xs={12} sm={3}>
           <Card>
             <CardContent style={{ position: 'relative' }}>
               <Box align="center" mt={2}>
                 <TokenSymbol symbol="HSHARE" />
               </Box>
-              <h2 align="center">SNOSHARE</h2>
+              <h2 align="center">WSHARE</h2>
               <p align="center">Current Price</p>
               <Box align="center">
                 <span style={{ fontSize: '30px' }}>
@@ -292,15 +336,13 @@ const Home = () => {
             </CardContent>
           </Card>
         </Grid>
-
-        {/* TBOND */}
         <Grid item xs={12} sm={3}>
           <Card>
             <CardContent style={{ position: 'relative' }}>
               <Box align="center" mt={2}>
                 <TokenSymbol symbol="HBOND" />
               </Box>
-              <h2 align="center">SNOBOND</h2>
+              <h2 align="center">WBOND</h2>
               <p align="center">Current Price</p>
               <Box align="center">
                 <span style={{ fontSize: '30px' }}>
@@ -335,49 +377,6 @@ const Home = () => {
                   Bond
                 </Button>
               </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Card>
-            <CardContent align="center">
-              <h2>SNO-JOE LP</h2>
-              <Box mt={2}>
-                <TokenSymbol symbol="SNO-JOE-LP" />
-              </Box>
-              <Box mt={2}>
-                <span style={{ fontSize: '26px' }}>
-                  {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} SNO /{' '}
-                  {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} JOE
-                </span>
-              </Box>
-              <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
-              <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
-                Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
-              </span>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Card>
-            <CardContent align="center">
-              <h2>SNOSHARE-JOE LP</h2>
-              <Box mt={2}>
-                <TokenSymbol symbol="SNOSHARE-JOE-LP" />
-              </Box>
-              <Box mt={2}>
-                <span style={{ fontSize: '26px' }}>
-                  {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} SNOSHARE /{' '}
-                  {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} JOE
-                </span>
-              </Box>
-              <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
-              <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
-                <br />
-                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'}
-              </span>
             </CardContent>
           </Card>
         </Grid>
