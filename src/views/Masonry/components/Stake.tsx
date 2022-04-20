@@ -83,7 +83,7 @@ const Stake: React.FC = () => {
                 <TokenSymbol symbol="HSHARE" />
               <Value value={getDisplayBalance(stakedBalance)} />
               <Label text={`≈ $${tokenPriceInDollars}`} />
-              <Label text={'SNOSHARE Staked'} />
+              <Label text={'WSHARE Staked'} />
             </StyledCardHeader>
             <StyledCardActions>
               {approveStatus !== ApprovalState.APPROVED ? (
