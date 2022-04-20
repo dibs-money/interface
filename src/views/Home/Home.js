@@ -15,7 +15,7 @@ import useTotalValueLocked from '../../hooks/useTotalValueLocked';
 import { tomb as tombTesting, tShare as tShareTesting } from '../../tomb-finance/deployments/deployments.testing.json';
 import { tomb as tombProd, tShare as tShareProd } from '../../tomb-finance/deployments/deployments.mainnet.json';
 
-import { Box, Button, CardContent, Grid, Typography } from '@material-ui/core';
+import { Box, Button, CardContent, Grid, Typography, useMediaQuery } from '@material-ui/core';
 import Card from '../../components/Card';
 import logo from '../../assets/img/logo.png';
 import tvl from '../../assets/img/tvl.svg';
@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
+  const matches = useMediaQuery('(min-width:600px)');
   const classes = useStyles();
   const TVL = useTotalValueLocked();
   const tombFtmLpStats = useLpStats('SNO-JOE-LP');
@@ -139,10 +140,14 @@ const Home = () => {
       <BackgroundImage />
       <Grid container spacing={3}>
         <Grid item sm={12} md={6} style={{ textAlign: 'center' }}>
-          <img src={`${logo}`} alt="logo" style={{ borderRadius: '50%' }} />
+          <img src={`${logo}`} alt="logo" style={{ borderRadius: '50%', ...(!matches ? { width: '75%' } : {}) }} />
         </Grid>
         <Grid item sm={12} md={6} container direction="column" style={{ justifyContent: 'space-between' }}>
-          <Typography variant="h1" style={{ fontWeight: 900, textAlign: 'center' }}>
+          <Typography
+            variant="h1"
+            style={{ fontWeight: 900, textAlign: 'center', ...(!matches ? { fontSize: 36 } : {}) }}
+            gutterBottom
+          >
             Welcome to WALRUS
           </Typography>
           <Card>
@@ -153,7 +158,11 @@ const Home = () => {
                 <h1>Total Value Locked</h1>
                 <CountUp style={{ fontSize: '40px' }} end={TVL} separator="," prefix="$" />
               </div>
-              <img src={`${tvl}`} alt="tvl" style={{ width: 128, height: 128 }} />
+              <img
+                src={`${tvl}`}
+                alt="tvl"
+                style={!matches ? { width: 80, height: 80 } : { width: 128, height: 128 }}
+              />
             </CardContent>
           </Card>
         </Grid>

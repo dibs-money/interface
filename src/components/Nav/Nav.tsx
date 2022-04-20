@@ -179,7 +179,7 @@ const Nav = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Snowy Owl Finance
+              WALRUS Finance
             </Typography>
 
             <Drawer
