@@ -16,11 +16,11 @@ const configurations: { [env: string]: Configuration } = {
       BOO: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7', 18],
       ZOO: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7', 0],
       SHIBA: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7', 9],
-      "SNO": ["0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D", 18],
+      SNO: ['0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D', 18],
       'WAVAX-USDC-LP': ['0x67926d973cD8eE876aD210fAaf7DFfA99E414aCf', 18],
       'SNO-JOE-LP': ['0xE63b66A8CF7811525cd15daB15F17fb62aa5af2F', 18],
       'SNOSHARE-JOE-LP': ['0x061349a57b702ebE3139CA419457bb23f7e0D8A2', 18],
-      "SNO-SNOSHARE-LP": ["0x3e262be2339069ceC95552683c1eb3F513aDCc66", 18]
+      'SNO-SNOSHARE-LP': ['0x3e262be2339069ceC95552683c1eb3F513aDCc66', 18],
     },
     baseLaunchDate: new Date('2021-06-02 13:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -39,11 +39,11 @@ const configurations: { [env: string]: Configuration } = {
       BOO: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7', 18],
       ZOO: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7', 0],
       SHIBA: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7', 9],
-      "SNO": ["0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D", 18],
+      SNO: ['0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D', 18],
       'WAVAX-USDC-LP': ['0x67926d973cD8eE876aD210fAaf7DFfA99E414aCf', 18],
       'SNO-JOE-LP': ['0xE63b66A8CF7811525cd15daB15F17fb62aa5af2F', 18],
       'SNOSHARE-JOE-LP': ['0x061349a57b702ebE3139CA419457bb23f7e0D8A2', 18],
-      "SNO-SNOSHARE-LP": ["0x3e262be2339069ceC95552683c1eb3F513aDCc66", 18]
+      'SNO-SNOSHARE-LP': ['0x3e262be2339069ceC95552683c1eb3F513aDCc66', 18],
     },
     baseLaunchDate: new Date('2021-06-02 13:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -76,9 +76,9 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     earnTokenName: 'SNOSHARE',
     finished: false,
     sort: 6,
-    closedForStaking: true
-   },
-   SnoJoe1LPSnoShareRewardPool: {
+    closedForStaking: true,
+  },
+  SnoJoe1LPSnoShareRewardPool: {
     name: 'Earn SNOSHARE by SNO-JOE LP',
     poolId: 0,
     sectionInUI: 2,
@@ -87,9 +87,9 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     earnTokenName: 'SNOSHARE',
     finished: false,
     sort: 6,
-    closedForStaking: true
-   },
-   SnoShareJoeLPSnoShareRewardPool: {
+    closedForStaking: true,
+  },
+  SnoShareJoeLPSnoShareRewardPool: {
     name: 'Earn SNOSHARE by SNOSHARE-JOE LP',
     poolId: 1,
     sectionInUI: 2,
@@ -98,9 +98,9 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     earnTokenName: 'SNOSHARE',
     finished: false,
     sort: 7,
-    closedForStaking: true
-   },
-   SnoSnoShareLPSnoShareRewardPool: {
+    closedForStaking: true,
+  },
+  SnoSnoShareLPSnoShareRewardPool: {
     name: 'Earn SNOSHARE by SNO-SNOSHARE LP',
     poolId: 2,
     sectionInUI: 2,
@@ -109,9 +109,9 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     earnTokenName: 'SNOSHARE',
     finished: false,
     sort: 8,
-    closedForStaking: true
-   },
-SnoSnoShareRewardPool: {
+    closedForStaking: true,
+  },
+  SnoSnoShareRewardPool: {
     name: 'Earn SNOSHARE by SNO',
     poolId: 5,
     sectionInUI: 2,
@@ -120,30 +120,30 @@ SnoSnoShareRewardPool: {
     earnTokenName: 'SNOSHARE',
     finished: false,
     sort: 9,
-    closedForStaking: true
-},
- SnoJoeLPRebate: {
-  name: 'Bond SNO-JOE LP for SNO',
-  poolId: 100,
-  sectionInUI: 3,
-  contract: 'TombAvaxLPHShareRewardPool',
-  depositTokenName: 'SNO-JOE-LP',
-  earnTokenName: 'SNO',
-  finished: false,
-  sort: 6,
-  closedForStaking: false
- },
- SnoShareJoeLPRebate: {
-  name: 'Bond SNOSHARE-JOE LP for SNO',
-  poolId: 100,
-  sectionInUI: 3,
-  contract: 'TombAvaxLPHShareRewardPool',
-  depositTokenName: 'SNOSHARE-JOE-LP',
-  earnTokenName: 'SNO',
-  finished: false,
-  sort: 6,
-  closedForStaking: false
- }
+    closedForStaking: true,
+  },
+  SnoJoeLPRebate: {
+    name: 'Bond SNO-JOE LP for SNO',
+    poolId: 100,
+    sectionInUI: 3,
+    contract: 'TombAvaxLPHShareRewardPool',
+    depositTokenName: 'SNO-JOE-LP',
+    earnTokenName: 'SNO',
+    finished: false,
+    sort: 6,
+    closedForStaking: false,
+  },
+  SnoShareJoeLPRebate: {
+    name: 'Bond SNOSHARE-JOE LP for SNO',
+    poolId: 100,
+    sectionInUI: 3,
+    contract: 'TombAvaxLPHShareRewardPool',
+    depositTokenName: 'SNOSHARE-JOE-LP',
+    earnTokenName: 'SNO',
+    finished: false,
+    sort: 6,
+    closedForStaking: false,
+  },
 };
 
 export default configurations[process.env.NODE_ENV || 'development'];

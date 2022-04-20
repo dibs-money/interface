@@ -3,7 +3,6 @@ import useTombFinance from './useTombFinance';
 import { AllocationTime } from '../tomb-finance/types';
 import useRefresh from './useRefresh';
 
-
 const useTreasuryAllocationTimes = () => {
   const { slowRefresh } = useRefresh();
   const [time, setTime] = useState<AllocationTime>({

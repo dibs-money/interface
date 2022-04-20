@@ -12,38 +12,41 @@ const GenLPCard = () => {
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
   const tshareLPStats = useMemo(() => (tShareFtmLpStats ? tShareFtmLpStats : null), [tShareFtmLpStats]);
   return (
-    <Grid   container
-    direction="column"
-    alignItems="center"
-    justifyContent="center">
-    <Card>
-      <CardContent align="center">
+    <Grid container direction="column" alignItems="center" justifyContent="center">
+      <Card>
+        <CardContent align="center">
           <Typography variant="h5" component="h2">
-              SNO-JOE-LP
-            </Typography>
-        <Box mt={2}>
+            SNO-JOE-LP
+          </Typography>
+          <Box mt={2}>
             <TokenSymbol symbol="SNO-JOE-LP" />
-        </Box>
-        <Box mt={2}>
-        </Box>
-        <Box mt={2}>
-          <span style={{ fontSize: '26px' }}>
-            {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} SNO /{' '}
-            {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} JOE
+          </Box>
+          <Box mt={2}></Box>
+          <Box mt={2}>
+            <span style={{ fontSize: '26px' }}>
+              {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} SNO /{' '}
+              {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} JOE
+            </span>
+          </Box>
+          <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
+          <span style={{ fontSize: '12px' }}>
+            Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
+            Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
           </span>
-        </Box>
-        <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
-        <span style={{ fontSize: '12px' }}>
-          Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
-          Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
-        </span>
-      </CardContent>
-      <CardActions style={{ justifyContent: 'center' }}>
-          <Button color="primary" size='small' style={{ width: '400px'}} variant="contained" component={Link} to={`/farms/SnoJoeLPSnoShareRewardPool/`}>
+        </CardContent>
+        <CardActions style={{ justifyContent: 'center' }}>
+          <Button
+            color="primary"
+            size="small"
+            style={{ width: '400px' }}
+            variant="contained"
+            component={Link}
+            to={`/farms/SnoJoeLPSnoShareRewardPool/`}
+          >
             View
           </Button>
         </CardActions>
-    </Card>
+      </Card>
     </Grid>
   );
 };

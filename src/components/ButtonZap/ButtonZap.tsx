@@ -4,7 +4,6 @@ import styled, { ThemeContext } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Zap from '../../assets/img/zap.png';
 
-
 interface ButtonProps {
   children?: React.ReactNode;
   disabled?: boolean;

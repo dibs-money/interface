@@ -1,10 +1,10 @@
 :root {
-  --font: "Quicksand";
+  --font: 'Quicksand';
 }
 
 body {
   overflow-x: hidden !important;
-  color: #4B4453;
+  color: #4b4453;
 }
 
 body,
@@ -40,12 +40,12 @@ body {
   height: 100%;
 }
 
-.shinyButtonDisabled{
+.shinyButtonDisabled {
   color: #fff !important;
   background-color: #ccc !important;
 }
 
-.shinyButton{
+.shinyButton {
   color: #fff !important;
   background-color: #000 !important;
 }
@@ -96,7 +96,7 @@ h4 {
 }
 h5,
 h6 {
-  font-family: 'Kanit', !important;
+  font-family: 'Kanit' !important;
 }
 
 footer .a:hover {
@@ -132,9 +132,9 @@ code {
 }
 
 .MuiButton-root {
-  background-color: #284C7B !important;
+  background-color: #284c7b !important;
 }
 
 .Mui-disabled {
-  background-color: #CDCDCD !important;
+  background-color: #cdcdcd !important;
 }

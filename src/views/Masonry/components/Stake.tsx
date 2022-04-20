@@ -80,7 +80,7 @@ const Stake: React.FC = () => {
         <CardContent>
           <StyledCardContentInner>
             <StyledCardHeader>
-                <TokenSymbol symbol="HSHARE" />
+              <TokenSymbol symbol="HSHARE" />
               <Value value={getDisplayBalance(stakedBalance)} />
               <Label text={`≈ $${tokenPriceInDollars}`} />
               <Label text={'WSHARE Staked'} />
@@ -98,14 +98,14 @@ const Stake: React.FC = () => {
                 </Button>
               ) : (
                 <>
-                <StyledCardActions2>
-                  <IconButton disabled={!canWithdrawFromMasonry} onClick={onPresentWithdraw}>
-                    <RemoveIcon/>
-                  </IconButton>
-                  <StyledActionSpacer />
-                  <IconButton onClick={onPresentDeposit}>
-                    <AddIcon />
-                  </IconButton>
+                  <StyledCardActions2>
+                    <IconButton disabled={!canWithdrawFromMasonry} onClick={onPresentWithdraw}>
+                      <RemoveIcon />
+                    </IconButton>
+                    <StyledActionSpacer />
+                    <IconButton onClick={onPresentDeposit}>
+                      <AddIcon />
+                    </IconButton>
                   </StyledCardActions2>
                 </>
               )}

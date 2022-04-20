@@ -60,7 +60,7 @@ const ProvideLiquidity = () => {
     }
     if (!isNumeric(e.currentTarget.value)) return;
     setFtmAmount(e.currentTarget.value);
-  const quoteFromSpooky = await tombFinance.quoteFromSpooky(e.currentTarget.value, 'AVAX');
+    const quoteFromSpooky = await tombFinance.quoteFromSpooky(e.currentTarget.value, 'AVAX');
     setTombAmount(quoteFromSpooky);
 
     setLpTokensAmount(quoteFromSpooky / tombLPStats.tokenAmount);
@@ -87,7 +87,13 @@ const ProvideLiquidity = () => {
       <Grid container justify="center">
         <Box style={{ width: '600px' }}>
           <Alert variant="filled" severity="warning" style={{ marginBottom: '10px' }}>
-            <b>This and <a href="https://traderjoexyz.com/#/home"  rel="noopener noreferrer" target="_blank">Trader Joe</a> are the only ways to provide Liquidity on TOMB-AVAX pair without paying tax.</b>
+            <b>
+              This and{' '}
+              <a href="https://traderjoexyz.com/#/home" rel="noopener noreferrer" target="_blank">
+                Trader Joe
+              </a>{' '}
+              are the only ways to provide Liquidity on TOMB-AVAX pair without paying tax.
+            </b>
           </Alert>
           <Grid item xs={12} sm={12}>
             <Paper>

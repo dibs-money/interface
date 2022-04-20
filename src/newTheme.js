@@ -17,7 +17,7 @@ const newTheme = createMuiTheme({
       dark: '#80b0ff',
       contrastText: '#000',
     },
-    discord :{
+    discord: {
       light: '#6043f7',
       main: '#6043f7',
     },

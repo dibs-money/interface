@@ -8,13 +8,12 @@ const useBondsPurchasable = () => {
 
   useEffect(() => {
     async function fetchBondsPurchasable() {
-        try {
-            setBalance(await tombFinance.getBondsPurchasable());
-        }
-        catch(err) {
-            console.error(err);
-        }
+      try {
+        setBalance(await tombFinance.getBondsPurchasable());
+      } catch (err) {
+        console.error(err);
       }
+    }
     fetchBondsPurchasable();
   }, [setBalance, tombFinance]);
 

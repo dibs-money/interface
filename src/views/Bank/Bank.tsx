@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useWallet } from 'use-wallet';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { Box, /*Button,*/ Card, CardContent,/*Typography,*/ Grid } from '@material-ui/core';
+import { Box, /*Button,*/ Card, CardContent, /*Typography,*/ Grid } from '@material-ui/core';
 
 import PageHeader from '../../components/PageHeader';
 import Spacer from '../../components/Spacer';
@@ -35,11 +35,11 @@ const Bank: React.FC = () => {
   const bank = useBank(bankId);
 
   const { account } = useWallet();
- // const { onRedeem } = useRedeem(bank);
+  // const { onRedeem } = useRedeem(bank);
   const statsOnPool = useStatsForPool(bank);
 
   if (!bank) {
-    return (<BankNotFound />);
+    return <BankNotFound />;
   }
   return account && bank ? (
     <>
@@ -48,34 +48,40 @@ const Bank: React.FC = () => {
         subtitle={`Deposit ${bank?.depositTokenName} and earn ${bank?.earnTokenName}`}
         title={bank?.name}
       />
-      {bank?.depositTokenName === "SNO" && Date.now() < 1646510400000 ? (
-          <Alert variant="filled" severity="info" style={{ maxWidth: "400px", marginBottom: "20px", marginLeft: "auto", marginRight: "auto" }}>
+      {bank?.depositTokenName === 'SNO' && Date.now() < 1646510400000 ? (
+        <Alert
+          variant="filled"
+          severity="info"
+          style={{ maxWidth: '400px', marginBottom: '20px', marginLeft: 'auto', marginRight: 'auto' }}
+        >
           Pool starts at 3:00 PM Eastern
         </Alert>
-      ) : (<></>)}
+      ) : (
+        <></>
+      )}
       <Box>
         <Grid container justify="center" spacing={3} style={{ marginBottom: '50px' }}>
           <Grid item xs={12} md={2} lg={3} className={classes.gridItem}>
-            <Card style={{background: '#161414', borderRadius: '15px', height: '120px'}} className={classes.gridItem}>
+            <Card style={{ background: '#161414', borderRadius: '15px', height: '120px' }} className={classes.gridItem}>
               <CardContent style={{ textAlign: 'center' }}>
-                <h3 style={{ color: '#5686d6'}}>APR</h3>
-                <h2 style={{ fontWeight: 'lighter'}}>{bank.closedForStaking ? '0.00' : statsOnPool?.yearlyAPR}%</h2>
+                <h3 style={{ color: '#5686d6' }}>APR</h3>
+                <h2 style={{ fontWeight: 'lighter' }}>{bank.closedForStaking ? '0.00' : statsOnPool?.yearlyAPR}%</h2>
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} md={2} lg={3} className={classes.gridItem}>
-            <Card style={{background: '#161414', borderRadius: '15px', height: '120px'}} className={classes.gridItem}>
+            <Card style={{ background: '#161414', borderRadius: '15px', height: '120px' }} className={classes.gridItem}>
               <CardContent style={{ textAlign: 'center' }}>
-                <h3 style={{ color: '#5686d6'}}>Daily APR</h3>
-                <h2 style={{ fontWeight: 'lighter'}}>{bank.closedForStaking ? '0.00' : statsOnPool?.dailyAPR}%</h2>
+                <h3 style={{ color: '#5686d6' }}>Daily APR</h3>
+                <h2 style={{ fontWeight: 'lighter' }}>{bank.closedForStaking ? '0.00' : statsOnPool?.dailyAPR}%</h2>
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} md={2} lg={3} className={classes.gridItem}>
-            <Card style={{background: '#161414', borderRadius: '15px', height: '120px'}} className={classes.gridItem}>
+            <Card style={{ background: '#161414', borderRadius: '15px', height: '120px' }} className={classes.gridItem}>
               <CardContent style={{ textAlign: 'center' }}>
-                <h3 style={{ color: '#5686d6'}}>Total Value Locked</h3>
-                <h2 style={{ fontWeight: 'lighter'}}>${statsOnPool?.TVL}</h2>
+                <h3 style={{ color: '#5686d6' }}>Total Value Locked</h3>
+                <h2 style={{ fontWeight: 'lighter' }}>${statsOnPool?.TVL}</h2>
               </CardContent>
             </Card>
           </Grid>

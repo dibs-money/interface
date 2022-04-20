@@ -10,7 +10,7 @@ import ERC20 from './ERC20';
 import { getFullDisplayBalance, getDisplayBalance } from '../utils/formatBalance';
 import { getDefaultProvider } from '../utils/provider';
 import IUniswapV2PairABI from './IUniswapV2Pair.abi.json';
-import /*config,*/ { bankDefinitions } from '../config';
+import { /*config,*/ bankDefinitions } from '../config';
 import moment from 'moment';
 import { parseUnits } from 'ethers/lib/utils';
 import { FTM_TICKER, SPOOKY_ROUTER_ADDR, TOMB_TICKER } from '../utils/constants';
@@ -124,8 +124,8 @@ export class TombFinance {
     let lpToken = this.externalTokens[name];
     let lpTokenSupplyBN = await lpToken.totalSupply();
     let lpTokenSupply = getDisplayBalance(lpTokenSupplyBN, 18);
-    let token0 = name === "SNO-JOE-LP" ? this.TOMB : this.TSHARE;
-    let isTomb = name === "SNO-JOE-LP";
+    let token0 = name === 'SNO-JOE-LP' ? this.TOMB : this.TSHARE;
+    let isTomb = name === 'SNO-JOE-LP';
     let tokenAmountBN = await token0.balanceOf(lpToken.address);
     let tokenAmount = getDisplayBalance(tokenAmountBN, 18);
 
@@ -137,10 +137,10 @@ export class TombFinance {
     let lpTokenPriceFixed = Number(lpTokenPrice).toFixed(2).toString();
     let liquidity = (Number(lpTokenSupply) * Number(lpTokenPrice)).toFixed(2).toString();
 
-    if (name === "SNO-SNOSHARE-LP") {
-        ftmAmountBN = await this.TOMB.balanceOf(lpToken.address)
-        ftmAmount = getDisplayBalance(ftmAmountBN, 18)
-        ftmAmountInOneLP = Number(ftmAmount) / Number(lpTokenSupply)
+    if (name === 'SNO-SNOSHARE-LP') {
+      ftmAmountBN = await this.TOMB.balanceOf(lpToken.address);
+      ftmAmount = getDisplayBalance(ftmAmountBN, 18);
+      ftmAmountInOneLP = Number(ftmAmount) / Number(lpTokenSupply);
     }
 
     return {
@@ -153,34 +153,33 @@ export class TombFinance {
   }
 
   async sendTomb(amount: string | number, recepient: string): Promise<TransactionResponse> {
-    const {tomb} = this.contracts;
-    
+    const { tomb } = this.contracts;
+
     return await tomb.transfer(recepient, decimalToBalance(amount));
   }
 
   async getRaffleStat(account: string, raffleAddress: string): Promise<TokenStat> {
     let total = 0;
-    const {tomb} = this.contracts;
-    
-    const priceInBTC = await this.getTokenPriceFromPancakeswap(this.TOMB);
-    
-    const balOfRaffle = await tomb.balanceOf(raffleAddress);
-    
-    const currentBlockNumber = await this.provider.getBlockNumber();
-    
-    const filterTo = tomb.filters.Transfer(account, raffleAddress);
-   
-    const startBlock = currentBlockNumber-100000;
+    const { tomb } = this.contracts;
 
-    let allEvents : any = [];
-    
-    for(let i = startBlock; i < currentBlockNumber; i += 2000) {
+    const priceInBTC = await this.getTokenPriceFromPancakeswap(this.TOMB);
+
+    const balOfRaffle = await tomb.balanceOf(raffleAddress);
+
+    const currentBlockNumber = await this.provider.getBlockNumber();
+
+    const filterTo = tomb.filters.Transfer(account, raffleAddress);
+
+    const startBlock = currentBlockNumber - 100000;
+
+    let allEvents: any = [];
+
+    for (let i = startBlock; i < currentBlockNumber; i += 2000) {
       const _startBlock = i;
       const _endBlock = Math.min(currentBlockNumber, i + 1999);
       const events = await tomb.queryFilter(filterTo, _startBlock, _endBlock);
-      allEvents = [...allEvents, ...events]
+      allEvents = [...allEvents, ...events];
     }
-
 
     if (allEvents.length !== 0 && account !== null) {
       for (let i = 0; i < allEvents.length; i++) {
@@ -190,7 +189,7 @@ export class TombFinance {
     } else {
       total = 0;
     }
-    
+
     return {
       tokenInFtm: priceInBTC.toString(),
       priceInDollars: total.toString(),
@@ -295,7 +294,7 @@ export class TombFinance {
     );
 
     let tokenPerHour = tokenPerSecond.mul(60).mul(60).mul(3).div(8);
-    if (bank.sectionInUI === 2 && bank.depositTokenName === "SNO") {
+    if (bank.sectionInUI === 2 && bank.depositTokenName === 'SNO') {
       tokenPerHour = tokenPerHour.mul(3).div(5);
     }
     const totalRewardPricePerYear =
@@ -369,14 +368,14 @@ export class TombFinance {
     if (tokenName === 'JOE') {
       tokenPrice = priceOfOneFtmInDollars;
     } else {
-      if (tokenName === "SNO") {
+      if (tokenName === 'SNO') {
         tokenPrice = (await this.getTombStat()).priceInDollars;
       } else if (tokenName === 'SNO-JOE-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true);
       } else if (tokenName === 'SNOSHARE-JOE-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false);
-      } else if (tokenName === "SNO-SNOSHARE-LP") {
-        tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false)
+      } else if (tokenName === 'SNO-SNOSHARE-LP') {
+        tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false);
       } else if (tokenName === 'SHIBA') {
         tokenPrice = await this.getTokenPriceFromSpiritswap(token);
       } else {
@@ -557,9 +556,8 @@ export class TombFinance {
     try {
       const wftmToToken = await Fetcher.fetchPairData(wftm, token, this.provider);
       const priceInBUSD = new Route([wftmToToken], token);
-      
-      return priceInBUSD.midPrice.toFixed(4);
 
+      return priceInBUSD.midPrice.toFixed(4);
     } catch (err) {
       console.error(`Failed to fetch token price of ${tokenContract.symbol}: ${err}`);
     }
@@ -772,32 +770,32 @@ export class TombFinance {
 
   async watchAssetInMetamask(assetName: string): Promise<boolean> {
     const { ethereum } = window as any;
-    
-      let asset;
-      let assetUrl;
-      if (assetName === 'TOMB') {
-        asset = this.TOMB;
-        assetUrl = 'https://gateway.pinata.cloud/ipfs/QmVL6cK5iUmkfGhw41s4gCksHn4H4KoF2tnEin2fhbEMmQ';
-      } else if (assetName === 'HSHARE') {
-        asset = this.TSHARE;
-        assetUrl = 'https://gateway.pinata.cloud/ipfs/QmSkdqbueZTKDjb2oqKo6bEcn6qenA9Z6iiSNR1omHGVZx';
-      } else if (assetName === 'HBOND') {
-        asset = this.TBOND;
-        assetUrl = 'https://gateway.pinata.cloud/ipfs/QmVCNLxo6vRUr3qCaNHJPwVL7jMGBf18FSa65zkeaHSbua';
-      }
-      await ethereum.request({
-        method: 'wallet_watchAsset',
-        params: {
-          type: 'ERC20',
-          options: {
-            address: asset.address,
-            symbol: asset.symbol,
-            decimals: 18,
-            image: assetUrl,
-          },
+
+    let asset;
+    let assetUrl;
+    if (assetName === 'TOMB') {
+      asset = this.TOMB;
+      assetUrl = 'https://gateway.pinata.cloud/ipfs/QmVL6cK5iUmkfGhw41s4gCksHn4H4KoF2tnEin2fhbEMmQ';
+    } else if (assetName === 'HSHARE') {
+      asset = this.TSHARE;
+      assetUrl = 'https://gateway.pinata.cloud/ipfs/QmSkdqbueZTKDjb2oqKo6bEcn6qenA9Z6iiSNR1omHGVZx';
+    } else if (assetName === 'HBOND') {
+      asset = this.TBOND;
+      assetUrl = 'https://gateway.pinata.cloud/ipfs/QmVCNLxo6vRUr3qCaNHJPwVL7jMGBf18FSa65zkeaHSbua';
+    }
+    await ethereum.request({
+      method: 'wallet_watchAsset',
+      params: {
+        type: 'ERC20',
+        options: {
+          address: asset.address,
+          symbol: asset.symbol,
+          decimals: 18,
+          image: assetUrl,
         },
-      });
-    
+      },
+    });
+
     return true;
   }
 
@@ -806,7 +804,12 @@ export class TombFinance {
     let overrides = {
       value: parseUnits(ftmAmount, 18),
     };
-    return await TaxOffice.addLiquidityETHTaxFree(tombAmount, tombAmount.mul(992).div(1000), parseUnits(ftmAmount, 18).mul(992).div(1000), overrides);
+    return await TaxOffice.addLiquidityETHTaxFree(
+      tombAmount,
+      tombAmount.mul(992).div(1000),
+      parseUnits(ftmAmount, 18).mul(992).div(1000),
+      overrides,
+    );
   }
 
   async quoteFromSpooky(tokenAmount: string, tokenName: string): Promise<string> {

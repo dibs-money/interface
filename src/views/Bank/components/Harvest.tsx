@@ -42,19 +42,30 @@ const Harvest: React.FC<HarvestProps> = ({ bank }) => {
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-              <TokenSymbol symbol={bank.earnToken.symbol} size={100} />
+            <TokenSymbol symbol={bank.earnToken.symbol} size={100} />
             <Value value={getDisplayBalance(earnings)} />
             <Label text={`≈ $${earnedInDollars}`} />
             <Label text={`${tokenName} Earned`} />
           </StyledCardHeader>
           <StyledCardActions>
-            <Button style={{borderRadius: '15px', width: '250px'}} onClick={onReward} disabled={earnings.eq(0)} color="primary" variant="contained">
+            <Button
+              style={{ borderRadius: '15px', width: '250px' }}
+              onClick={onReward}
+              disabled={earnings.eq(0)}
+              color="primary"
+              variant="contained"
+            >
               Claim
             </Button>
           </StyledCardActions>
-          <Button style={{borderRadius: '15px', marginTop: '10px', width: '250px'}} onClick={onRedeem} color="primary" variant="contained">
-              Claim & Withdraw
-            </Button>
+          <Button
+            style={{ borderRadius: '15px', marginTop: '10px', width: '250px' }}
+            onClick={onRedeem}
+            color="primary"
+            variant="contained"
+          >
+            Claim & Withdraw
+          </Button>
         </StyledCardContentInner>
       </CardContent>
     </Card>

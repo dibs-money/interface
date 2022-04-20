@@ -12,8 +12,7 @@ const useBondStats = () => {
     async function fetchBondPrice() {
       try {
         setStat(await tombFinance.getBondStat());
-      }
-      catch(err){
+      } catch (err) {
         console.error(err);
       }
     }

@@ -5,17 +5,16 @@ import useRefresh from '../useRefresh';
 
 const useTShareSwapperStats = (account: string) => {
   const [stat, setStat] = useState<TShareSwapperStat>();
-  const { fastRefresh/*, slowRefresh*/ } = useRefresh();
+  const { fastRefresh /*, slowRefresh*/ } = useRefresh();
   const tombFinance = useTombFinance();
 
   useEffect(() => {
     async function fetchTShareSwapperStat() {
-      try{
-        if(tombFinance.myAccount) {
+      try {
+        if (tombFinance.myAccount) {
           setStat(await tombFinance.getTShareSwapperStat(account));
         }
-      }
-      catch(err){
+      } catch (err) {
         console.error(err);
       }
     }

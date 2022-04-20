@@ -18,8 +18,6 @@ import useRedeemOnMasonry from '../../../hooks/useRedeemOnMasonry';
 import useStakedBalanceOnMasonry from '../../../hooks/useStakedBalanceOnMasonry';
 import useWithdrawCheck from '../../../hooks/masonry/useWithdrawCheck';
 
-
-
 const Harvest: React.FC = () => {
   const { onRedeem } = useRedeemOnMasonry();
   const tombStats = useTombStats();
@@ -44,7 +42,7 @@ const Harvest: React.FC = () => {
         <CardContent>
           <StyledCardContentInner>
             <StyledCardHeader>
-                <TokenSymbol symbol="TOMB" />
+              <TokenSymbol symbol="TOMB" />
               <Value value={getDisplayBalance(earnings)} />
               <Label text={`≈ $${earnedInDollars}`} />
               <Label text="WLRS Earned" />
@@ -61,14 +59,14 @@ const Harvest: React.FC = () => {
               </Button>
             </StyledCardActions>
             <Button
-                disabled={stakedBalance.eq(0) || (!canWithdraw && !canClaimReward)}
-                onClick={onRedeem}
-                color="primary"
-                variant="contained"
-                style={{ borderRadius: '15px', width: '250px', marginTop: '10px' }}
-              >
-                Claim and Withdraw
-              </Button>
+              disabled={stakedBalance.eq(0) || (!canWithdraw && !canClaimReward)}
+              onClick={onRedeem}
+              color="primary"
+              variant="contained"
+              style={{ borderRadius: '15px', width: '250px', marginTop: '10px' }}
+            >
+              Claim and Withdraw
+            </Button>
           </StyledCardContentInner>
         </CardContent>
       </Card>
