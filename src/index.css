@@ -130,3 +130,11 @@ code {
   background-color: black !important;
   color: #757ce8 !important;
 }
+
+.MuiButton-root {
+  background-color: #284C7B !important;
+}
+
+.Mui-disabled {
+  background-color: #CDCDCD !important;
+}

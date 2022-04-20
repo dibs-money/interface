@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import Page from '../../components/Page';
 import styled from 'styled-components';
-import useTokenBalance from '../../hooks/useTokenBalance';
 import HomeImage from '../../assets/img/bg.png';
 import AvaxLogo from '../../assets/img/joe.png';
 import { createGlobalStyle } from 'styled-components';
@@ -384,35 +383,5 @@ const Home = () => {
     </Page>
   );
 };
-
-const StyledValue = styled.div`
-  //color: ${(props) => props.theme.color.grey[300]};
-  font-size: 30px;
-  font-weight: 700;
-`;
-
-const StyledBalance = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-`;
-
-const Balances = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-`;
-
-const StyledBalanceWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  margin: 1%;
-`;
 
 export default Home;
