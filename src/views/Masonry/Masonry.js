@@ -27,7 +27,7 @@ import useTotalStakedOnMasonry from '../../hooks/useTotalStakedOnMasonry';
 // import useClaimRewardCheck from '../../hooks/masonry/useClaimRewardCheck';
 // import useWithdrawCheck from '../../hooks/masonry/useWithdrawCheck';
 import ProgressCountdown from './components/ProgressCountdown';
-import MasonryImage from '../../assets/img/background.jpg';
+import MasonryImage from '../../assets/img/bg.png';
 import { createGlobalStyle } from 'styled-components';
 
 const BackgroundImage = createGlobalStyle`

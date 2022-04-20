@@ -12,7 +12,7 @@ import Page from '../../components/Page';
 import CemeteryCard from './CemeteryCard';
 import GenesisCard from './GenesisCard';
 import GenLPCard from './GenLPCard';
-import CemeteryImage from '../../assets/img/background.jpg';
+import CemeteryImage from '../../assets/img/bg.png';
 import { createGlobalStyle } from 'styled-components';
 
 import useBanks from '../../hooks/useBanks';

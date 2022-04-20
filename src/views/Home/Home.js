@@ -1,10 +1,8 @@
 import React, { useMemo } from 'react';
 import Page from '../../components/Page';
 import styled from 'styled-components';
-import Label from '../../components/Label';
-import { getDisplayBalance } from '../../utils/formatBalance';
 import useTokenBalance from '../../hooks/useTokenBalance';
-import HomeImage from '../../assets/img/background.jpg';
+import HomeImage from '../../assets/img/bg.png';
 import AvaxLogo from '../../assets/img/joe.png';
 import { createGlobalStyle } from 'styled-components';
 import CountUp from 'react-countup';
@@ -18,8 +16,10 @@ import useTotalValueLocked from '../../hooks/useTotalValueLocked';
 import { tomb as tombTesting, tShare as tShareTesting } from '../../tomb-finance/deployments/deployments.testing.json';
 import { tomb as tombProd, tShare as tShareProd } from '../../tomb-finance/deployments/deployments.mainnet.json';
 
-import { Box, Button, CardContent, Grid } from '@material-ui/core';
+import { Box, Button, CardContent, Grid, Typography } from '@material-ui/core';
 import Card from '../../components/Card';
+import logo from '../../assets/img/logo.png';
+import tvl from '../../assets/img/tvl.png';
 
 import { makeStyles } from '@material-ui/core/styles';
 import useTombFinance from '../../hooks/useTombFinance';
@@ -125,24 +125,6 @@ const Home = () => {
   );
   const tBondTotalSupply = useMemo(() => (tBondStats ? String(tBondStats.totalSupply) : null), [tBondStats]);
 
-  const tombBalance = useTokenBalance(tombFinance.TOMB);
-  const displayTombBalance = useMemo(() => getDisplayBalance(tombBalance), [tombBalance]);
-  const tombBalanceinDollars = (displayTombBalance * tombPriceInDollars).toFixed(2);
-
-  const tshareBalance = useTokenBalance(tombFinance.TSHARE);
-  const displayTshareBalance = useMemo(() => getDisplayBalance(tshareBalance), [tshareBalance]);
-  const tshareBalanceinDollars = (displayTshareBalance * tSharePriceInDollars).toFixed(2);
-
-  const tbondBalance = useTokenBalance(tombFinance.TBOND);
-  const displayTbondBalance = useMemo(() => getDisplayBalance(tbondBalance), [tbondBalance]);
-  const tbondBalanceinDollars = (displayTbondBalance * tBondPriceInFTM).toFixed(2);
-
-  const StyledLink = styled.a`
-    font-weight: 700;
-    text-decoration: none;
-    color: #e6e6e6;
-  `;
-
   const Row = styled.div`
     font-family: Quicksand, cursive;
     align-items: center;
@@ -156,160 +138,24 @@ const Home = () => {
     <Page>
       <BackgroundImage />
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          {/* Logo */}
-          <Card>
-            <CardContent style={{ position: 'relative' }}>
-              <Box p={4}>
-                <h1 style={{ color: '#ffffff' }}>My balance</h1>
-              </Box>
-              <Balances>
-                <StyledBalanceWrapper>
-                  <TokenSymbol symbol="TOMB" />
-                  <StyledBalance>
-                    <StyledValue>{displayTombBalance}</StyledValue>
-                    <Label text=" SNO available" />
-                    <span style={{ fontSize: '15px', marginLeft: '2%' }}>
-                      {' '}
-                      (${tombBalanceinDollars ? tombBalanceinDollars : '-.----'}
-                      )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span>
-                    <div className={classes.flex}>
-                      <Button
-                        color="primary"
-                        target="_blank"
-                        href={buyTombAddress}
-                        variant="contained"
-                        style={{ marginTop: '10px', borderRadius: '10px', width: '27%', marginRight: '5%' }}
-                        className={classes.tokenButton}
-                      >
-                        Buy
-                      </Button>
-                      <Button
-                        color="primary"
-                        target="_blank"
-                        href="https://dexscreener.com/avalanche/0xe63b66a8cf7811525cd15dab15f17fb62aa5af2f"
-                        variant="contained"
-                        style={{ marginTop: '10px', borderRadius: '10px', width: '27%', marginRight: '5%' }}
-                        className={classes.tokenButton}
-                      >
-                        Chart
-                      </Button>
-                      <Button
-                        color="primary"
-                        target="_blank"
-                        href="https://snowtrace.io/address/0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D#code"
-                        variant="contained"
-                        style={{ marginTop: '10px', borderRadius: '10px', width: '27%', marginRight: '5%' }}
-                        className={classes.tokenButton}
-                      >
-                        Contract
-                      </Button>
-                    </div>
-                  </StyledBalance>
-                </StyledBalanceWrapper>
-                <StyledBalanceWrapper>
-                  <TokenSymbol symbol="HSHARE" />
-                  <StyledBalance>
-                    <StyledValue>{displayTshareBalance}</StyledValue>
-                    <Label text=" SNOSHARE available                             " />
-                    <span style={{ fontSize: '15px', marginLeft: '2%' }}>
-                      {' '}
-                      (${tshareBalanceinDollars ? tshareBalanceinDollars : '-.----'})
-                    </span>
-                    <div className={classes.flex}>
-                      <Button
-                        color="primary"
-                        target="_blank"
-                        href={buyTShareAddress}
-                        variant="contained"
-                        style={{ marginTop: '10px', borderRadius: '10px', width: '27%', marginRight: '5%' }}
-                        className={classes.tokenButton}
-                      >
-                        Buy
-                      </Button>
-                      <Button
-                        color="primary"
-                        target="_blank"
-                        href="https://dexscreener.com/avalanche/0x061349a57b702ebe3139ca419457bb23f7e0d8a2"
-                        variant="contained"
-                        style={{ marginTop: '10px', borderRadius: '10px', width: '27%', marginRight: '5%' }}
-                        className={classes.tokenButton}
-                      >
-                        Chart
-                      </Button>
-                      <Button
-                        color="primary"
-                        target="_blank"
-                        href="https://snowtrace.io/address/0xe7a102fbc8ab3581d62830ddb599eccaae5e7875#code"
-                        variant="contained"
-                        style={{ marginTop: '10px', borderRadius: '10px', width: '27%', marginRight: '5%' }}
-                        className={classes.tokenButton}
-                      >
-                        Contract
-                      </Button>
-                    </div>
-                  </StyledBalance>
-                </StyledBalanceWrapper>
-                <StyledBalanceWrapper>
-                  <TokenSymbol symbol="HBOND" />
-                  <StyledBalance>
-                    <StyledValue>{displayTbondBalance}</StyledValue>
-                    <Label text=" SNOBOND available" />
-                    <span style={{ fontSize: '15px', marginLeft: '2%' }}>
-                      {' '}
-                      (${tbondBalanceinDollars ? tbondBalanceinDollars : '-.----'})
-                    </span>
-                    <div className={classes.flex}>
-                      <Button
-                        color="primary"
-                        href="/bonds"
-                        variant="contained"
-                        style={{ marginTop: '10px', borderRadius: '10px', width: '27%', marginRight: '5%' }}
-                        className={classes.tokenButton}
-                      >
-                        Bond
-                      </Button>
-                      <Button
-                        color="primary"
-                        target="_blank"
-                        href="https://snowtrace.io/address/0x8aB4Ac266d8e698b7E39f97Ec17876076680f6f1#code"
-                        variant="contained"
-                        style={{ marginTop: '10px', borderRadius: '10px', width: '27%', marginRight: '5%' }}
-                        className={classes.tokenButton}
-                      >
-                        Contract
-                      </Button>
-                    </div>
-                  </StyledBalance>
-                </StyledBalanceWrapper>
-              </Balances>
-            </CardContent>
-            {/* <Paper>xs=6 sm=3</Paper> */}
-          </Card>
+        <Grid item sm={12} md={6} style={{ textAlign: 'center' }}>
+          <img src={`${logo}`} alt="logo" style={{ borderRadius: '50%' }} />
         </Grid>
-        {/* Explanation text */}
-        <Grid item xs={12} sm={6}>
-          <Box p={4}>
-            <h1>Welcome to</h1>
-            <h1>Snowy Owl Finance</h1>
-            <h4 style={{ color: '#5686d6', marginTop: '4%' }}>
-              Bringing more degens and utility to the Avalanche-C Chain.
-            </h4>
-            <h4 style={{ color: '#5686d6' }}>$SNO is pegged at a ratio of 1:1 with $JOE.</h4>
-            <h4 style={{ color: '#5686d6', marginBottom: '3%' }}>
-              Earn and stake $SNOSHARE to help peg $SNO with seigniorage.
-            </h4>
-          </Box>
-
-          <Grid item xs={20} sm={12} style={{ display: 'flex' }}>
-            <Card style={{ borderRadius: '20px', backgroundColor: '#161414' }}>
-              <CardContent style={{ margin: '37px' }}>
+        <Grid item sm={12} md={6} container direction="column" style={{ justifyContent: 'space-between' }}>
+          <Typography variant="h1" style={{ fontWeight: 900, textAlign: 'center' }}>
+            Welcome to WALRUS
+          </Typography>
+          <Card>
+            <CardContent
+              style={{ margin: '37px', display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}
+            >
+              <div>
                 <h1>Total Value Locked</h1>
                 <CountUp style={{ fontSize: '40px' }} end={TVL} separator="," prefix="$" />
-              </CardContent>
-            </Card>
-          </Grid>
+              </div>
+              <img src={`${tvl}`} alt="tvl" style={{ width: 64, height: 64 }} />
+            </CardContent>
+          </Card>
         </Grid>
         <Grid item xs={12} sm={3}>
           <Card>

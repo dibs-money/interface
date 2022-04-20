@@ -18,7 +18,7 @@ import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP
 import useBanks from '../../hooks/useBanks';
 import useRebateTreasury from "../../hooks/useRebateTreasury"
 import useTombStats from '../../hooks/useTombStats';
-import CemeteryImage from '../../assets/img/background.jpg';
+import CemeteryImage from '../../assets/img/bg.png';
 
 const web3 = new Web3()
 const BN = n => new web3.utils.BN(n)
