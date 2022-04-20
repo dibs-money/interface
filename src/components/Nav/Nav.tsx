@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import {
@@ -11,7 +11,6 @@ import {
   useMediaQuery,
   ListItem,
   Divider,
-  Button,
 } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
@@ -19,11 +18,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AccountButton from './AccountButton';
-import DiscordImage from '../../assets/img/discord.svg';
-import useTombStats from '../../hooks/useTombStats';
-import usetShareStats from '../../hooks/usetShareStats';
 
-const logo = require('../../assets/img/sno.png');
 const useStyles = makeStyles((theme) => ({
   '@global': {
     ul: {
@@ -31,10 +26,6 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       listStyle: 'none',
     },
-  },
-  logo: {
-    width: '75px',
-    marginRight: '20px',
   },
   label: {
     fontSize: '22px',
@@ -75,10 +66,12 @@ const useStyles = makeStyles((theme) => ({
   },
   brandLink: {
     textDecoration: 'none',
-    color: '#CCA250',
+    color: '#4B4453',
     '&:hover': {
       textDecoration: 'none',
     },
+    fontSize: 30,
+    fontWeight: 900,
   },
   '@media only screen and (max-width: 1600px)': {
     logo: {
@@ -100,20 +93,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Nav = () => {
-  const matches = useMediaQuery('(min-width:900px)');
+  const matches = useMediaQuery('(min-width:1200px)');
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const tombStats = useTombStats();
-  const tShareStats = usetShareStats();
-  const tombPriceInDollars = useMemo(
-    () => (tombStats ? Number(tombStats.priceInDollars).toFixed(2) : null),
-    [tombStats],
-  );
-  const tSharePriceInDollars = useMemo(
-    () => (tShareStats ? Number(tShareStats.priceInDollars).toFixed(2) : null),
-    [tShareStats],
-  );
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -128,17 +111,9 @@ const Nav = () => {
       <Toolbar className={classes.toolbar} style={{ width: '100%' }}>
         {matches ? (
           <>
-            <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-              <Link to="/" color="inherit" className={classes.brandLink}>
-                <div
-                  className={classes.label}
-                  style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
-                >
-                  <img alt="logo" className={classes.logo} src={String(logo)} />
-                  Snowy Owl
-                </div>
-              </Link>
-            </Typography>
+            <Link to="/" className={classes.brandLink}>
+              WALRUS
+            </Link>
             <Box style={{ width: 'auto !important' }}>
               <Link color="textPrimary" to="/" className={classes.link}>
                 Home
@@ -189,23 +164,6 @@ const Nav = () => {
                 marginRight: '20px',
               }}
             >
-              <img style={{ width: 50 }} src={'/static/media/sno.5382de83.png'} />
-              <span style={{ fontSize: '16px', color: '#000000', marginRight: '15px', marginLeft: '10px' }}>
-                ${tombPriceInDollars ? tombPriceInDollars : '-.--'}
-              </span>
-              <img style={{ width: 50 }} src={'/static/media/snoshare.20c07224.png'} />
-              <span style={{ fontSize: '16px', color: '#000000', marginRight: '30px', marginLeft: '10px' }}>
-                ${tSharePriceInDollars ? tSharePriceInDollars : '-.--'}
-              </span>
-              <Button
-                href="https://discord.gg/vYWDJjwfvE"
-                target="_blank"
-                variant="contained"
-                color="secondary"
-                style={{ marginRight: '25px', borderRadius: '14px', width: '60px' }}
-              >
-                <img alt="discordlogo" style={{ width: 22 }} src={String(DiscordImage)} />
-              </Button>
               <AccountButton text="Connect" />
             </div>
           </>
