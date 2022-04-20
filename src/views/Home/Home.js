@@ -19,7 +19,7 @@ import { tomb as tombProd, tShare as tShareProd } from '../../tomb-finance/deplo
 import { Box, Button, CardContent, Grid, Typography } from '@material-ui/core';
 import Card from '../../components/Card';
 import logo from '../../assets/img/logo.png';
-import tvl from '../../assets/img/tvl.png';
+import tvl from '../../assets/img/tvl.svg';
 
 import { makeStyles } from '@material-ui/core/styles';
 import useTombFinance from '../../hooks/useTombFinance';
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('415')]: {
       marginTop: '10px',
     },
-    backgroundImage: 'linear-gradient(0.25turn, #2C73D2, #00C9A7)',
+    backgroundColor: '#284C7B',
   },
   tokenButton: {},
   '@media only screen and (max-width: 1200px)': {
