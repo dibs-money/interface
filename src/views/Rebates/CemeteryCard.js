@@ -84,8 +84,23 @@ const CemeteryCard = ({ bank }) => {
             >
               <TokenSymbol size={32} symbol={bank.depositTokenName} />
             </Box>
-            <div className={classes.black}>{bank.depositTokenName}</div>
-            <div className={classes.black}>Bond {bank.depositTokenName.toUpperCase()} Earn SNO</div>
+            <div className={classes.black}>
+              {console.log(bank.depositTokenName)}
+              {bank.depositTokenName === 'SNOSHARE-JOE-LP'
+                ? 'WSHARE-UST-LP'
+                : bank.depositTokenName === 'SNO-JOE-LP'
+                ? 'WLRS-UST LP'
+                : ''}
+            </div>
+            <div className={classes.black}>
+              Bond&nbsp;
+              {bank.depositTokenName === 'SNOSHARE-JOE-LP'
+                ? 'WSHARE-UST-LP'
+                : bank.depositTokenName === 'SNO-JOE-LP'
+                ? 'WLRS-UST LP'
+                : ''}
+              Earn WLRS
+            </div>
           </Box>
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>
@@ -96,7 +111,12 @@ const CemeteryCard = ({ bank }) => {
               color="primary"
               onClick={approve}
             >
-              Approve {bank.depositTokenName}
+              Approve{' '}
+              {bank.depositTokenName === 'SNOSHARE-JOE-LP'
+                ? 'WSHARE-UST-LP'
+                : bank.depositTokenName === 'SNO-JOE-LP'
+                ? 'WLRS-UST LP'
+                : ''}
             </Button>
           ) : (
             <Button color="primary" size="small" variant="contained" onClick={onPresentDeposit}>
