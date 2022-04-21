@@ -63,69 +63,67 @@ const CemeteryCard = ({ bank }) => {
   );
 
   return (
-    <Grid item xs={12} md={4} lg={4}>
-      <Card variant="outlined" style={{ border: '1px solid #000000', color: '#000000 !important', margin: '20px' }}>
-        <CardContent>
-          <Box style={{ position: 'relative' }}>
-            <Box
-              style={{
-                position: 'absolute',
-                right: '0px',
-                top: '-5px',
-                height: '48px',
-                width: '48px',
-                borderRadius: '40px',
-                backgroundColor: 'transparent',
-                alignItems: 'center',
-                display: 'flex',
-                justifyContent: 'center',
-                color: '#000000 !important',
-              }}
-            >
-              <TokenSymbol size={32} symbol={bank.depositTokenName} />
-            </Box>
-            <div className={classes.black}>
-              {console.log(bank.depositTokenName)}
-              {bank.depositTokenName === 'SNOSHARE-JOE-LP'
-                ? 'WSHARE-UST-LP'
-                : bank.depositTokenName === 'SNO-JOE-LP'
-                ? 'WLRS-UST LP'
-                : ''}
-            </div>
-            <div className={classes.black}>
-              Bond&nbsp;
-              {bank.depositTokenName === 'SNOSHARE-JOE-LP'
-                ? 'WSHARE-UST-LP'
-                : bank.depositTokenName === 'SNO-JOE-LP'
-                ? 'WLRS-UST LP'
-                : ''}
-              Earn WLRS
-            </div>
+    <Card>
+      <CardContent>
+        <Box style={{ position: 'relative' }}>
+          <Box
+            style={{
+              position: 'absolute',
+              right: '0px',
+              top: '-5px',
+              height: '48px',
+              width: '48px',
+              borderRadius: '40px',
+              backgroundColor: 'transparent',
+              alignItems: 'center',
+              display: 'flex',
+              justifyContent: 'center',
+              color: '#000000 !important',
+            }}
+          >
+            <TokenSymbol size={50} symbol={bank.depositTokenName} />
           </Box>
-        </CardContent>
-        <CardActions style={{ justifyContent: 'flex-end' }}>
-          {approveStatus !== ApprovalState.APPROVED ? (
-            <Button
-              disabled={approveStatus !== ApprovalState.NOT_APPROVED}
-              variant="contained"
-              color="primary"
-              onClick={approve}
-            >
-              Approve{' '}
-              {bank.depositTokenName === 'SNOSHARE-JOE-LP'
-                ? 'WSHARE-UST-LP'
-                : bank.depositTokenName === 'SNO-JOE-LP'
-                ? 'WLRS-UST LP'
-                : ''}
-            </Button>
-          ) : (
-            <Button color="primary" size="small" variant="contained" onClick={onPresentDeposit}>
-              Bond
-            </Button>
-          )}
-        </CardActions>
-      </Card>
-    </Grid>
+          <div className={classes.black}>
+            {bank.depositTokenName === 'SNOSHARE-JOE-LP'
+              ? 'WSHARE-UST-LP'
+              : bank.depositTokenName === 'SNO-JOE-LP'
+              ? 'WLRS-UST LP'
+              : ''}
+          </div>
+          <div className={classes.black}>
+            Bond&nbsp;
+            {bank.depositTokenName === 'SNOSHARE-JOE-LP'
+              ? 'WSHARE-UST-LP'
+              : bank.depositTokenName === 'SNO-JOE-LP'
+              ? 'WLRS-UST LP'
+              : ''}
+            <br />
+            Earn WLRS
+          </div>
+        </Box>
+      </CardContent>
+      <CardActions>
+        {approveStatus !== ApprovalState.APPROVED ? (
+          <Button
+            disabled={approveStatus !== ApprovalState.NOT_APPROVED}
+            variant="contained"
+            color="primary"
+            onClick={approve}
+          >
+            Approve{' '}
+            {bank.depositTokenName === 'SNOSHARE-JOE-LP'
+              ? 'WSHARE-UST-LP'
+              : bank.depositTokenName === 'SNO-JOE-LP'
+              ? 'WLRS-UST LP'
+              : ''}
+          </Button>
+        ) : (
+          <Button color="primary" size="small" variant="contained" onClick={onPresentDeposit}>
+            Bond
+          </Button>
+        )}
+      </CardActions>
+    </Card>
   );
 };
 

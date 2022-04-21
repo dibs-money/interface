@@ -4,7 +4,7 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Web3 from 'web3';
 
-import { Box, Card, CardContent, Button, Typography, Grid } from '@material-ui/core';
+import { Card, CardContent, Button, Typography, Grid } from '@material-ui/core';
 
 import { Alert } from '@material-ui/lab';
 
@@ -12,7 +12,6 @@ import UnlockWallet from '../../components/UnlockWallet';
 import Page from '../../components/Page';
 import CemeteryCard from './CemeteryCard';
 import { createGlobalStyle } from 'styled-components';
-import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP';
 
 import useBanks from '../../hooks/useBanks';
 import useRebateTreasury from '../../hooks/useRebateTreasury';
@@ -58,7 +57,6 @@ const Cemetery = () => {
   const [banks] = useBanks();
   const { path } = useRouteMatch();
   const { account } = useWallet();
-  const cashStat = useCashPriceInEstimatedTWAP();
   const tombStats = useTombStats();
   const activeBanks = banks.filter((bank) => !bank.finished);
 
@@ -107,87 +105,76 @@ const Cemetery = () => {
         <Route exact path={path}>
           <BackgroundImage />
           {!!account ? (
-            <>
-              <Typography
-                color="textPrimary"
-                align="center"
-                variant="h3"
-                gutterBottom
-                style={{ marginBottom: '40px', color: '#000000' }}
-              >
-                WLRSDAO
-              </Typography>
-              <Alert variant="filled" severity="info" className={classes.alert}>
-                WLRS rewards from bonds are vested for 3 days linearly.
-              </Alert>
-              <Box mt={2}>
-                <Grid container justify="center" spacing={3}>
-                  <Grid item xs={12} md={3} lg={3} className={classes.gridItem}>
-                    <Card className={`${classes.gridItem} ${classes.gridCard}`}>
-                      <CardContent align="center">
-                        <Typography variant="h5">
-                          WLRS Price <small>(TWAP)</small>
-                        </Typography>
-                        <Typography variant="h6">{tombPriceInFTM ? tombPriceInFTM : '-.----'} UST</Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                  <Grid item xs={12} md={3} lg={3} className={classes.gridItem}>
-                    <Card className={`${classes.gridItem} ${classes.gridCard}`}>
-                      <CardContent align="center">
-                        <Typography variant="h5">Bond Premium</Typography>
-                        <Typography variant="h6">{rebateStats.bondPremium.toFixed(3)}%</Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
+            <Grid container direction="column" style={{ alignItems: 'center' }} spacing={5}>
+              <Grid item>
+                <Typography variant="h3">WLRSDAO</Typography>
+              </Grid>
+              <Grid item>
+                <Alert variant="filled" severity="info" icon={false} style={{ textAlign: 'center' }}>
+                  WLRS rewards from bonds are vested for 3 days linearly.
+                </Alert>
+              </Grid>
+              <Grid item container md={10} spacing={5} style={{ justifyContent: 'center' }}>
+                <Grid item xs={12} sm={8} md={6}>
+                  <Card style={{ display: 'flex', justifyContent: 'space-between', color: 'black', padding: 16 }}>
+                    <Typography variant="h5" component="p">
+                      WLRS Price <small>(TWAP)</small>
+                    </Typography>
+                    <Typography variant="h6" component="p">
+                      {tombPriceInFTM ? tombPriceInFTM : '-.----'} UST
+                    </Typography>
+                  </Card>
                 </Grid>
-              </Box>
-              <div
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginBottom: '20px',
-                }}
-              >
-                <Typography variant="h4" gutterBottom style={{ color: '#000000 !important', marginTop: '35px' }}>
-                  Bondable Assets
+                <Grid item xs={12} sm={8} md={6}>
+                  <Card style={{ display: 'flex', justifyContent: 'space-between', color: 'black', padding: 16 }}>
+                    <Typography variant="h5" component="p">
+                      Bond Premium
+                    </Typography>
+                    <Typography variant="h6" component="p">
+                      {rebateStats.bondPremium.toFixed(3)}%
+                    </Typography>
+                  </Card>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <Typography variant="h3" style={{ textAlign: 'center', wordBreak: 'break-word' }}>
+                  Boundable assets
                 </Typography>
-                <div className={classes.flex}>
-                  {activeBanks
-                    .filter((bank) => bank.sectionInUI === 3)
-                    .map((bank) => (
-                      <React.Fragment key={bank.name}>
-                        <CemeteryCard bank={bank} className={classes.gridCard} />
-                      </React.Fragment>
-                    ))}
-                </div>
-              </div>
-              <Box mt={2}>
-                <Grid container justify="center" spacing={3}>
-                  <Grid item xs={12} md={3} lg={3} className={`${classes.gridItem}`}>
-                    <Card style={{ height: 'auto' }} className={classes.gridCard}>
-                      <CardContent align="center">
-                        <Typography variant="h5">WLRS Vesting</Typography>
-                        <Typography variant="h6">{vested.toFixed(4)} Total Vested</Typography>
-                        <Typography variant="h6">{claimable3omb.toFixed(4)} Claimable</Typography>
-                        <Button
-                          color="primary"
-                          size="small"
-                          variant="contained"
-                          onClick={claimTomb}
-                          style={{ marginTop: '8px' }}
-                        >
-                          CLAIM
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </Grid>
+              </Grid>
+              <Grid item container md={10} spacing={5} style={{ justifyContent: 'center' }}>
+                {activeBanks
+                  .filter((bank) => bank.sectionInUI === 3)
+                  .map((bank) => (
+                    <Grid item xs={12} sm={8} md={6} key={bank.name}>
+                      <CemeteryCard bank={bank} className={classes.gridCard} />
+                    </Grid>
+                  ))}
+                <Grid item xs={12} sm={8} md={6}>
+                  <Card>
+                    <CardContent align="center" style={{ color: 'black' }}>
+                      <Typography variant="h5" component="p">
+                        WLRS Vesting
+                      </Typography>
+                      <Typography variant="h6" component="p">
+                        {vested.toFixed(4)} Total Vested
+                      </Typography>
+                      <Typography variant="h6" component="p">
+                        {claimable3omb.toFixed(4)} Claimable
+                      </Typography>
+                      <Button
+                        color="primary"
+                        size="small"
+                        variant="contained"
+                        onClick={claimTomb}
+                        style={{ marginTop: '8px' }}
+                      >
+                        CLAIM
+                      </Button>
+                    </CardContent>
+                  </Card>
                 </Grid>
-              </Box>
-            </>
+              </Grid>
+            </Grid>
           ) : (
             <UnlockWallet />
           )}
