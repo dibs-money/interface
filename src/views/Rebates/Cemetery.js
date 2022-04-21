@@ -4,7 +4,7 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Web3 from 'web3';
 
-import { Card, CardContent, Button, Typography, Grid } from '@material-ui/core';
+import { CardContent, Button, Typography, Grid } from '@material-ui/core';
 
 import { Alert } from '@material-ui/lab';
 
@@ -17,6 +17,7 @@ import useBanks from '../../hooks/useBanks';
 import useRebateTreasury from '../../hooks/useRebateTreasury';
 import useTombStats from '../../hooks/useTombStats';
 import CemeteryImage from '../../assets/img/bg.png';
+import Card from '../../components/Card';
 
 const web3 = new Web3();
 const BN = (n) => new web3.utils.BN(n);
@@ -116,23 +117,27 @@ const Cemetery = () => {
               </Grid>
               <Grid item container md={10} spacing={5} style={{ justifyContent: 'center' }}>
                 <Grid item xs={12} sm={8} md={6}>
-                  <Card style={{ display: 'flex', justifyContent: 'space-between', color: 'black', padding: 16 }}>
-                    <Typography variant="h5" component="p">
-                      WLRS Price <small>(TWAP)</small>
-                    </Typography>
-                    <Typography variant="h6" component="p">
-                      {tombPriceInFTM ? tombPriceInFTM : '-.----'} UST
-                    </Typography>
+                  <Card>
+                    <CardContent style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <Typography variant="h5" component="p">
+                        WLRS Price <small>(TWAP)</small>
+                      </Typography>
+                      <Typography variant="h6" component="p">
+                        {tombPriceInFTM ? tombPriceInFTM : '-.----'} UST
+                      </Typography>
+                    </CardContent>
                   </Card>
                 </Grid>
                 <Grid item xs={12} sm={8} md={6}>
-                  <Card style={{ display: 'flex', justifyContent: 'space-between', color: 'black', padding: 16 }}>
-                    <Typography variant="h5" component="p">
-                      Bond Premium
-                    </Typography>
-                    <Typography variant="h6" component="p">
-                      {rebateStats.bondPremium.toFixed(3)}%
-                    </Typography>
+                  <Card>
+                    <CardContent style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <Typography variant="h5" component="p">
+                        Bond Premium
+                      </Typography>
+                      <Typography variant="h6" component="p">
+                        {rebateStats.bondPremium.toFixed(3)}%
+                      </Typography>
+                    </CardContent>
                   </Card>
                 </Grid>
               </Grid>
@@ -151,7 +156,7 @@ const Cemetery = () => {
                   ))}
                 <Grid item xs={12} sm={8} md={6}>
                   <Card>
-                    <CardContent align="center" style={{ color: 'black' }}>
+                    <CardContent align="center">
                       <Typography variant="h5" component="p">
                         WLRS Vesting
                       </Typography>
