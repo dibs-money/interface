@@ -19,25 +19,26 @@ const CemeteryCard = () => {
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
         <Card>
-          <CardContent align="center">
-            <Typography variant="h5" component="h2">
-              WLRS-UST-LP
-            </Typography>
-            <Box mt={1}>
-              <TokenSymbol symbol="SNO-JOE-LP" />
-            </Box>
-            <Box mt={2}></Box>
-            <Box mt={2}>
+          <CardContent
+            style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', textAlign: 'center' }}
+          >
+            <div>
+              <Typography variant="h5" component="h2">
+                WLRS-UST-LP
+              </Typography>
+              <TokenSymbol size={60} symbol="SNO-JOE-LP" />
+            </div>
+            <div>
               <span style={{ fontSize: '23px' }}>
                 {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} WLRS /{' '}
                 {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} UST
               </span>
-            </Box>
-            <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
-            <span style={{ fontSize: '12px' }}>
-              Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
-              Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
-            </span>
+              <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
+              <span style={{ fontSize: '12px' }}>
+                Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
+                Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
+              </span>
+            </div>
           </CardContent>
           <CardActions style={{ justifyContent: 'center' }}>
             <Button
@@ -63,26 +64,28 @@ const CemeteryCard = () => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Card>
-          <CardContent align="center">
-            <Typography variant="h5" component="h2">
-              WSHARE-UST-LP
-            </Typography>
-            <Box mt={1}>
-              <TokenSymbol symbol="SNOSHARE-JOE-LP" />
-            </Box>
-            <Box mt={2}></Box>
-            <Box mt={2}>
+          <CardContent
+            style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', textAlign: 'center' }}
+          >
+            <div>
+              <Typography variant="h5" component="h2">
+                WSHARE-UST-LP
+              </Typography>
+              <TokenSymbol size={60} symbol="SNOSHARE-JOE-LP" />
+            </div>
+            <div>
               <span style={{ fontSize: '23px' }}>
                 {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} WSHARE /{' '}
                 {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} UST
               </span>
-            </Box>
-            <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
-            <span style={{ fontSize: '12px' }}>
-              Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
-              <br />
-              Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'}
-            </span>
+
+              <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
+              <span style={{ fontSize: '12px' }}>
+                Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
+                <br />
+                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'}
+              </span>
+            </div>
           </CardContent>
           <CardActions style={{ justifyContent: 'center' }}>
             <Button
@@ -108,26 +111,27 @@ const CemeteryCard = () => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Card>
-          <CardContent align="center">
-            <Typography variant="h5" component="h2">
-              SNO-SNOSHARE-LP
-            </Typography>
-            <Box mt={1}>
-              <TokenSymbol symbol="SNO-SNOSHARE-LP" />
-            </Box>
-            <Box mt={2}></Box>
-            <Box mt={2}>
+          <CardContent
+            style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', textAlign: 'center' }}
+          >
+            <div>
+              <Typography variant="h5" component="h2">
+                SNO-SNOSHARE-LP
+              </Typography>
+              <TokenSymbol symbol="SNO-SNOSHARE-LP" size={60} />
+            </div>
+            <div>
               <span style={{ fontSize: '23px' }}>
                 {snoSnoShareLPStats?.ftmAmount ? snoSnoShareLPStats?.ftmAmount : '-.--'} SNO /{' '}
                 {snoSnoShareLPStats?.tokenAmount ? snoSnoShareLPStats?.tokenAmount : '-.--'} SNOSHARE
               </span>
-            </Box>
-            <Box>${snoSnoShareLPStats?.priceOfOne ? snoSnoShareLPStats.priceOfOne : '-.--'}</Box>
-            <span style={{ fontSize: '12px' }}>
-              Liquidity: ${snoSnoShareLPStats?.totalLiquidity ? snoSnoShareLPStats.totalLiquidity : '-.--'}
-              <br />
-              Total supply: {snoSnoShareLPStats?.totalSupply ? snoSnoShareLPStats.totalSupply : '-.--'}
-            </span>
+              <Box>${snoSnoShareLPStats?.priceOfOne ? snoSnoShareLPStats.priceOfOne : '-.--'}</Box>
+              <span style={{ fontSize: '12px' }}>
+                Liquidity: ${snoSnoShareLPStats?.totalLiquidity ? snoSnoShareLPStats.totalLiquidity : '-.--'}
+                <br />
+                Total supply: {snoSnoShareLPStats?.totalSupply ? snoSnoShareLPStats.totalSupply : '-.--'}
+              </span>
+            </div>
           </CardContent>
           <CardActions style={{ justifyContent: 'center' }}>
             <Button
@@ -153,20 +157,24 @@ const CemeteryCard = () => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Card>
-          <CardContent align="center">
-            <Typography variant="h5" component="h2">
-              WLRS
-            </Typography>
-            <Box mt={1}>
-              <TokenSymbol symbol="SNO" />
-            </Box>
-            <Box mt={2}>SINGLE STAKE</Box>
-            <Box>${snoPrice?.priceInDollars ? snoPrice?.priceInDollars : '-.--'}</Box>
-            <span style={{ fontSize: '12px' }}>
-              Circulating Supply: ${snoPrice?.circulatingSupply ? snoPrice?.circulatingSupply : '-.--'}
-              <br />
-              Total supply: {snoPrice?.totalSupply ? snoPrice.totalSupply : '-.--'}
-            </span>
+          <CardContent
+            style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', textAlign: 'center' }}
+          >
+            <div>
+              <Typography variant="h5" component="h2">
+                WLRS
+              </Typography>
+              <TokenSymbol symbol="SNO" size={60} />
+            </div>
+            <div>
+              SINGLE STAKE
+              <Box>${snoPrice?.priceInDollars ? snoPrice?.priceInDollars : '-.--'}</Box>
+              <span style={{ fontSize: '12px' }}>
+                Circulating Supply: ${snoPrice?.circulatingSupply ? snoPrice?.circulatingSupply : '-.--'}
+                <br />
+                Total supply: {snoPrice?.totalSupply ? snoPrice.totalSupply : '-.--'}
+              </span>
+            </div>
           </CardContent>
           <CardActions style={{ justifyContent: 'center' }}>
             <Button
