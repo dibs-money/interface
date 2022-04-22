@@ -5,13 +5,12 @@ import tombLogo from '../../assets/img/wlrs-coin.png';
 import tShareLogo from '../../assets/img/wshare-coin.png';
 import tombLogoPNG from '../../assets/img/sno.png';
 import tShareLogoPNG from '../../assets/img/snoshare.png';
-import tBondLogo from '../../assets/img/snobond.png';
+import tBondLogo from '../../assets/img/wbond.svg';
 
 import tombFtmLpLogo from '../../assets/img/wlrs-coin.png';
 import tshareFtmLpLogo from '../../assets/img/wshare-coin.png';
-import snoSnoShareLpLogo from '../../assets/img/sno-snoshare.png';
 
-import wftmLogo from '../../assets/img/joe.png';
+import wftmLogo from '../../assets/img/ust.svg';
 import booLogo from '../../assets/img/spooky.png';
 import zooLogo from '../../assets/img/zoo_logo.svg';
 import shibaLogo from '../../assets/img/shiba_logo.svg';
@@ -33,7 +32,7 @@ const logosBySymbol: { [title: string]: string } = {
   SNOSHARE: tShareLogoPNG,
   'SNO-JOE-LP': tombFtmLpLogo,
   'SNOSHARE-JOE-LP': tshareFtmLpLogo,
-  'SNO-SNOSHARE-LP': snoSnoShareLpLogo,
+  'SNO-SNOSHARE-LP': tshareFtmLpLogo,
 };
 
 type LogoProps = {

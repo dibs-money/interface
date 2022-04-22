@@ -116,14 +116,14 @@ const CemeteryCard = () => {
           >
             <div>
               <Typography variant="h5" component="h2">
-                SNO-SNOSHARE-LP
+                WLRS-WSHARE-LP
               </Typography>
               <TokenSymbol symbol="SNO-SNOSHARE-LP" size={60} />
             </div>
             <div>
               <span style={{ fontSize: '23px' }}>
-                {snoSnoShareLPStats?.ftmAmount ? snoSnoShareLPStats?.ftmAmount : '-.--'} SNO /{' '}
-                {snoSnoShareLPStats?.tokenAmount ? snoSnoShareLPStats?.tokenAmount : '-.--'} SNOSHARE
+                {snoSnoShareLPStats?.ftmAmount ? snoSnoShareLPStats?.ftmAmount : '-.--'} WLRS /{' '}
+                {snoSnoShareLPStats?.tokenAmount ? snoSnoShareLPStats?.tokenAmount : '-.--'} WSHARE
               </span>
               <Box>${snoSnoShareLPStats?.priceOfOne ? snoSnoShareLPStats.priceOfOne : '-.--'}</Box>
               <span style={{ fontSize: '12px' }}>

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import Page from '../../components/Page';
 import styled from 'styled-components';
 import HomeImage from '../../assets/img/bg.png';
-import AvaxLogo from '../../assets/img/joe.png';
+import AvaxLogo from '../../assets/img/ust.svg';
 import { createGlobalStyle } from 'styled-components';
 import CountUp from 'react-countup';
 import TokenSymbol from '../../components/TokenSymbol';
