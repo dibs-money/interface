@@ -18,6 +18,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AccountButton from './AccountButton';
+import logo from '../../assets/img/logo.png';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -26,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       listStyle: 'none',
     },
+  },
+  logo: {
+    width: '30px',
+    marginRight: '20px',
   },
   label: {
     fontSize: '22px',
@@ -74,14 +79,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 900,
   },
   '@media only screen and (max-width: 1600px)': {
-    logo: {
-      width: '60px',
-      marginRight: '12px',
-    },
-    label: {
-      fontSize: '18px',
-      marginRight: '30px',
-    },
     link: {
       fontSize: '17px',
       margin: '3.5%',
@@ -112,9 +109,15 @@ const Nav = () => {
         {matches ? (
           <>
             <Link to="/" className={classes.brandLink}>
-              WALRUS
+              <div
+                className={classes.label}
+                style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
+              >
+                <img alt="logo" className={classes.logo} src={logo} />
+                WALRUS
+              </div>
             </Link>
-            <Box style={{ width: 'auto !important' }}>
+            <Box style={{ width: 'auto !important', marginLeft: '3%' }}>
               <Link color="textPrimary" to="/" className={classes.link}>
                 Home
               </Link>
@@ -129,9 +132,6 @@ const Nav = () => {
               </Link>
               <Link color="textPrimary" to="/rebates" className={classes.link}>
                 Rebates
-              </Link>
-              <Link color="textPrimary" to="/raffle" className={classes.link}>
-                Raffle
               </Link>
               <a
                 href="https://yieldwolf.finance/avalanche/snowy-owl/"
@@ -222,9 +222,6 @@ const Nav = () => {
                 </Link>
                 <Link color="textPrimary" to="/rebates" className={classes.link}>
                   <div style={{ margin: '4px 20px' }}>Rebates</div>
-                </Link>
-                <Link color="textPrimary" to="/raffle" className={classes.link}>
-                  <div style={{ margin: '4px 20px' }}>Raffle</div>
                 </Link>
                 <a href="https://snowyowlfinance.gitbook.io/" target="_blank" className={classes.link}>
                   <div style={{ margin: '4px 20px' }}>Docs</div>

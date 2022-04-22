@@ -17,7 +17,6 @@ import { tomb as tombProd, tShare as tShareProd } from '../../tomb-finance/deplo
 
 import { Box, Button, CardContent, Grid, Typography, useMediaQuery } from '@material-ui/core';
 import Card from '../../components/Card';
-import logo from '../../assets/img/logo.png';
 import tvl from '../../assets/img/tvl.svg';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -139,17 +138,22 @@ const Home = () => {
     <Page>
       <BackgroundImage />
       <Grid container spacing={3}>
-        <Grid item sm={12} md={6} style={{ textAlign: 'center' }}>
-          <img src={`${logo}`} alt="logo" style={{ borderRadius: '50%', ...(!matches ? { width: '75%' } : {}) }} />
-        </Grid>
-        <Grid item sm={12} md={6} container direction="column" style={{ justifyContent: 'space-between' }}>
+        <Grid item sm={12} md={6} style={{ display: 'flex', width: '100%' }}>
           <Typography
             variant="h1"
-            style={{ fontWeight: 900, textAlign: 'center', ...(!matches ? { fontSize: 36 } : {}) }}
+            style={{
+              fontWeight: 900,
+              textAlign: 'center',
+              fontSize: 50,
+              margin: 'auto',
+              ...(!matches ? { fontSize: 36 } : {}),
+            }}
             gutterBottom
           >
             Welcome to WALRUS
           </Typography>
+        </Grid>
+        <Grid item sm={12} md={6} container direction="column" style={{ justifyContent: 'space-between' }}>
           <Card>
             <CardContent
               style={{ margin: '37px', display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}
@@ -171,9 +175,9 @@ const Home = () => {
           <Card>
             <CardContent align="center">
               <h2>WLRS-UST LP</h2>
-              <Box mt={2}>
-                <TokenSymbol symbol="SNO-JOE-LP" />
-              </Box>
+              <div style={{ position: 'absolute', right: 5, top: 5 }}>
+                <TokenSymbol size={50} symbol="SNO-JOE-LP" />
+              </div>
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
                   {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} WLRS /{' '}
@@ -192,9 +196,9 @@ const Home = () => {
           <Card>
             <CardContent align="center">
               <h2>WSHARE-UST LP</h2>
-              <Box mt={2}>
-                <TokenSymbol symbol="SNOSHARE-JOE-LP" />
-              </Box>
+              <div style={{ position: 'absolute', right: 5, top: 5 }}>
+                <TokenSymbol size={50} symbol="SNOSHARE-JOE-LP" />
+              </div>
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
                   {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} WSHARE /{' '}
@@ -214,9 +218,9 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card>
             <CardContent style={{ position: 'relative' }}>
-              <Box align="center" mt={2}>
-                <TokenSymbol symbol="WFTM" />
-              </Box>
+              <div style={{ position: 'absolute', right: 5, top: 5 }}>
+                <TokenSymbol symbol="WFTM" size={50} />
+              </div>
               <h2 align="center">UST</h2>
               <p align="center">Current Price</p>
               <Box align="center">
@@ -256,9 +260,9 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card>
             <CardContent style={{ position: 'relative' }}>
-              <Box align="center" mt={2}>
-                <TokenSymbol symbol="TOMB" />
-              </Box>
+              <div style={{ position: 'absolute', right: 5, top: 5 }}>
+                <TokenSymbol symbol="TOMB" size={50} />
+              </div>
               <h2 align="center">WLRS</h2>
               <p align="center">Current Price</p>
               <Box align="center">
@@ -303,9 +307,9 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card>
             <CardContent style={{ position: 'relative' }}>
-              <Box align="center" mt={2}>
-                <TokenSymbol symbol="HSHARE" />
-              </Box>
+              <div style={{ position: 'absolute', right: 5, top: 5 }}>
+                <TokenSymbol symbol="HSHARE" size={50} />
+              </div>
               <h2 align="center">WSHARE</h2>
               <p align="center">Current Price</p>
               <Box align="center">
@@ -347,9 +351,9 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card>
             <CardContent style={{ position: 'relative' }}>
-              <Box align="center" mt={2}>
-                <TokenSymbol symbol="HBOND" />
-              </Box>
+              <div style={{ position: 'absolute', right: 5, top: 5 }}>
+                <TokenSymbol symbol="HBOND" size={50} />
+              </div>
               <h2 align="center">WBOND</h2>
               <p align="center">Current Price</p>
               <Box align="center">

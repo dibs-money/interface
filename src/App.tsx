@@ -62,9 +62,6 @@ const App: React.FC = () => {
             <Route path="/rebates">
               <Rebates />
             </Route>
-            <Route path="/raffle">
-              <Raffle />
-            </Route>
             {/* <Route path="/sbs">
               <SBS />
             </Route>
