@@ -112,7 +112,7 @@ const Nav = () => {
                 style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
               >
                 <img alt="logo" className={classes.logo} src={logo} />
-                <div style={{fontWeight: 900}}>WALRUS</div>
+                <div style={{ fontWeight: 900 }}>WALRUS</div>
               </div>
             </Link>
             <Box style={{ width: 'auto !important', marginLeft: '3%' }}>
@@ -140,7 +140,7 @@ const Nav = () => {
                 Compound
               </a>
               <a
-                href="https://snowyowlfinance.gitbook.io/"
+                href="https://docs.frozenwalrus.finance/welcome"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={classes.link}

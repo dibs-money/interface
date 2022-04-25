@@ -193,7 +193,7 @@ const CemeteryCard = () => {
               variant="contained"
               href="https://traderjoexyz.com/trade?inputCurrency=0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd&outputCurrency=0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D"
             >
-              Buy SNO
+              Buy WLRS
             </Button>
           </CardActions>
         </Card>
