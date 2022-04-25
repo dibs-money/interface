@@ -126,7 +126,6 @@ const Home = () => {
   const tBondTotalSupply = useMemo(() => (tBondStats ? String(tBondStats.totalSupply) : null), [tBondStats]);
 
   const Row = styled.div`
-    font-family: Quicksand, cursive;
     align-items: center;
     display: flex;
     font-size: 16px;
@@ -236,7 +235,7 @@ const Home = () => {
                   24h Price Change: <br />
                   &nbsp;
                 </span>
-                <span style={{ fontSize: '14px' }}>
+                <span style={{ fontSize: '14px', textAlign: 'right' }}>
                   ${JOEMarketCap} <br />
                   {JOEPriceChange.toFixed(2)}% <br />
                   &nbsp;
@@ -283,7 +282,7 @@ const Home = () => {
                   Circulating Supply: <br />
                   Total Supply:
                 </span>
-                <span style={{ fontSize: '14px' }}>
+                <span style={{ fontSize: '14px', textAlign: 'right' }}>
                   ${((tombCirculatingSupply - 20000) * tombPriceInDollars).toFixed(2)} <br />
                   {tombCirculatingSupply - 20000} <br />
                   {tombTotalSupply}
@@ -327,7 +326,7 @@ const Home = () => {
                   Circulating Supply: <br />
                   Total Supply:
                 </span>
-                <span style={{ fontSize: '14px' }}>
+                <span style={{ fontSize: '14px', textAlign: 'right' }}>
                   ${(tShareCirculatingSupply * tSharePriceInDollars).toFixed(2)} <br />
                   {tShareCirculatingSupply} <br />
                   {tShareTotalSupply}
@@ -371,7 +370,7 @@ const Home = () => {
                   Circulating Supply: <br />
                   Total Supply:
                 </span>
-                <span style={{ fontSize: '14px' }}>
+                <span style={{ fontSize: '14px', textAlign: 'right' }}>
                   ${(tBondCirculatingSupply * tBondPriceInDollars).toFixed(2)} <br />
                   {tBondCirculatingSupply} <br />
                   {tBondTotalSupply}

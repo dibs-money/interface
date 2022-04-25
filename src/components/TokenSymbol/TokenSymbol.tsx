@@ -10,7 +10,7 @@ import tBondLogo from '../../assets/img/SVG_Icons_and_web_bg/Bond icon-01.svg';
 import tombFtmLpLogo from '../../assets/img/SVG_Icons_and_web_bg/WLRS-UST-LP-01.svg';
 import tshareFtmLpLogo from '../../assets/img/SVG_Icons_and_web_bg/SHARE-UST-LP-01.svg';
 
-import wftmLogo from '../../assets/img/ust.svg';
+import wftmLogo from '../../assets/img/SVG_Icons_and_web_bg/UST.svg';
 import booLogo from '../../assets/img/spooky.png';
 import zooLogo from '../../assets/img/zoo_logo.svg';
 import shibaLogo from '../../assets/img/shiba_logo.svg';
