@@ -9,7 +9,7 @@ Install the dependencies
 
 ```shell
 yarn
-yarn start
+yarn dev
 ```
 
 Make sure you've configured your IDE with `prettier`.
