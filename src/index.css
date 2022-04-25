@@ -139,6 +139,7 @@ code {
   background-color: #cdcdcd !important;
 }
 
-.MuiTypography-root {
-  font-family: var(--font) !important;
+.MuiTypography-root,
+.MuiAlert-root {
+    font-family: var(--font) !important;
 }
