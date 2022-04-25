@@ -16,7 +16,7 @@ import { createGlobalStyle } from 'styled-components';
 import useBanks from '../../hooks/useBanks';
 import useRebateTreasury from '../../hooks/useRebateTreasury';
 import useTombStats from '../../hooks/useTombStats';
-import CemeteryImage from '../../assets/img/bg.png';
+import CemeteryImage from '../../assets/img/SVG_Icons_and_web_bg/bg.svg';
 import Card from '../../components/Card';
 
 const web3 = new Web3();

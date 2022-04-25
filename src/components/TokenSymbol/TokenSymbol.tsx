@@ -1,14 +1,14 @@
 import React from 'react';
 
 //Graveyard ecosystem logos
-import tombLogo from '../../assets/img/wlrs-coin.png';
-import tShareLogo from '../../assets/img/wshare-coin.png';
+import tombLogo from '../../assets/img/SVG_Icons_and_web_bg/WLRS-Icon-01.svg';
+import tShareLogo from '../../assets/img/SVG_Icons_and_web_bg/WSHARE-Icon-01.svg';
 import tombLogoPNG from '../../assets/img/sno.png';
 import tShareLogoPNG from '../../assets/img/snoshare.png';
-import tBondLogo from '../../assets/img/wbond.svg';
+import tBondLogo from '../../assets/img/SVG_Icons_and_web_bg/Bond icon-01.svg';
 
-import tombFtmLpLogo from '../../assets/img/wlrs-coin.png';
-import tshareFtmLpLogo from '../../assets/img/wshare-coin.png';
+import tombFtmLpLogo from '../../assets/img/SVG_Icons_and_web_bg/WLRS-UST-LP-01.svg';
+import tshareFtmLpLogo from '../../assets/img/SVG_Icons_and_web_bg/SHARE-UST-LP-01.svg';
 
 import wftmLogo from '../../assets/img/ust.svg';
 import booLogo from '../../assets/img/spooky.png';

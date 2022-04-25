@@ -1,10 +1,11 @@
 :root {
-  --font: 'Quicksand';
+  --font: 'Roboto Slab', serif;
 }
 
 body {
   overflow-x: hidden !important;
   color: #4b4453;
+  font-family: var(--font);
 }
 
 body,

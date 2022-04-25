@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import Page from '../../components/Page';
 import { createGlobalStyle } from 'styled-components';
-import HomeImage from '../../assets/img/home.png';
+import HomeImage from '../../assets/img/SVG_Icons_and_web_bg/bg.svg';
 import useLpStats from '../../hooks/useLpStats';
 import { Box, Button, Grid, Paper, Typography } from '@material-ui/core';
 import useTombStats from '../../hooks/useTombStats';

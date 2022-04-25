@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import Page from '../../components/Page';
 import styled from 'styled-components';
-import HomeImage from '../../assets/img/bg.png';
+import HomeImage from '../../assets/img/SVG_Icons_and_web_bg/bg.svg';
 import AvaxLogo from '../../assets/img/ust.svg';
 import { createGlobalStyle } from 'styled-components';
 import CountUp from 'react-countup';

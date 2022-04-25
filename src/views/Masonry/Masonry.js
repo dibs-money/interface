@@ -22,7 +22,7 @@ import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP
 import useTreasuryAllocationTimes from '../../hooks/useTreasuryAllocationTimes';
 import useTotalStakedOnMasonry from '../../hooks/useTotalStakedOnMasonry';
 import ProgressCountdown from './components/ProgressCountdown';
-import MasonryImage from '../../assets/img/bg.png';
+import MasonryImage from '../../assets/img/SVG_Icons_and_web_bg/bg.svg';
 import { createGlobalStyle } from 'styled-components';
 
 const BackgroundImage = createGlobalStyle`

@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import useRaffleStats from '../../hooks/useRaffleBalance';
 import useGrapeFinance from '../../hooks/useTombFinance';
 import { useTransactionAdder } from '../../state/transactions/hooks';
-import HomeImage from '../../assets/img/bg.png';
+import HomeImage from '../../assets/img/SVG_Icons_and_web_bg/bg.svg';
 import { Card, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import LaunchCountdown from '../../components/LaunchCountdown';

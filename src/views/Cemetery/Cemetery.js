@@ -9,7 +9,7 @@ import { Box, Container, Typography, Grid } from '@material-ui/core';
 import UnlockWallet from '../../components/UnlockWallet';
 import Page from '../../components/Page';
 import CemeteryCard from './CemeteryCard';
-import CemeteryImage from '../../assets/img/bg.png';
+import CemeteryImage from '../../assets/img/SVG_Icons_and_web_bg/bg.svg';
 import { createGlobalStyle } from 'styled-components';
 
 import useBanks from '../../hooks/useBanks';
