@@ -18,7 +18,7 @@ jobs:
           heroku_email: "vova.lunev@devhouse.pro"
           usedocker: true
           docker_heroku_process_type: "web"
-          ocker_build_args: |
+          docker_build_args: |
             NODE_ENV
         env:
           NODE_ENV: production
