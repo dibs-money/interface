@@ -140,6 +140,7 @@ code {
 }
 
 .MuiTypography-root,
-.MuiAlert-root {
+.MuiAlert-root,
+.MuiButton-root {
     font-family: var(--font) !important;
 }
