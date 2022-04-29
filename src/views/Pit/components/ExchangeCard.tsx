@@ -103,7 +103,8 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
                 // disabled={disabled}
                 disabled
               >
-                {disabledDescription || action}
+                {/* {disabledDescription || action} */}
+                {action}
               </Button>
             )}
           </StyledCardActions>
