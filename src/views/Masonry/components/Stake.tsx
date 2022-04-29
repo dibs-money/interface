@@ -81,14 +81,17 @@ const Stake: React.FC = () => {
           <StyledCardContentInner>
             <StyledCardHeader>
               <TokenSymbol symbol="HSHARE" />
-              <Value value={getDisplayBalance(stakedBalance)} />
-              <Label text={`≈ $${tokenPriceInDollars}`} />
+              {/* <Value value={getDisplayBalance(stakedBalance)} /> */}
+              <Value value={'0'} />
+              {/* <Label text={`≈ $${tokenPriceInDollars}`} /> */}
+              <Label text={`0`} />
               <Label text={'WSHARE Staked'} />
             </StyledCardHeader>
             <StyledCardActions>
               {approveStatus !== ApprovalState.APPROVED ? (
                 <Button
-                  disabled={approveStatus !== ApprovalState.NOT_APPROVED}
+                  // disabled={approveStatus !== ApprovalState.NOT_APPROVED}
+                  disabled
                   variant="contained"
                   color="primary"
                   style={{ marginTop: '65px' }}
@@ -99,11 +102,15 @@ const Stake: React.FC = () => {
               ) : (
                 <>
                   <StyledCardActions2>
-                    <IconButton disabled={!canWithdrawFromMasonry} onClick={onPresentWithdraw}>
+                    <IconButton
+                      // disabled={!canWithdrawFromMasonry}
+                      disabled
+                      onClick={onPresentWithdraw}
+                    >
                       <RemoveIcon />
                     </IconButton>
                     <StyledActionSpacer />
-                    <IconButton onClick={onPresentDeposit}>
+                    <IconButton onClick={onPresentDeposit} disabled>
                       <AddIcon />
                     </IconButton>
                   </StyledCardActions2>
@@ -120,7 +127,9 @@ const Stake: React.FC = () => {
           <Card>
             <CardContent>
               <Typography style={{ textAlign: 'center' }}>Withdraw possible in</Typography>
-              <ProgressCountdown hideBar={true} base={from} deadline={to} description="Withdraw available in" />
+              {/* <ProgressCountdown hideBar={true} base={from} deadline={to} description="Withdraw available in" /> */}
+              <h2>Withdraw available in</h2>
+              <h2>00:00:00</h2>
             </CardContent>
           </Card>
         )}

@@ -123,7 +123,8 @@ const Cemetery = () => {
                         WLRS Price <small>(TWAP)</small>
                       </Typography>
                       <Typography variant="h6" component="p">
-                        {tombPriceInFTM ? tombPriceInFTM : '-.----'} UST
+                        {/* {tombPriceInFTM ? tombPriceInFTM : '-.----'} UST */}
+                        0 UST
                       </Typography>
                     </CardContent>
                   </Card>
@@ -135,7 +136,8 @@ const Cemetery = () => {
                         Bond Premium
                       </Typography>
                       <Typography variant="h6" component="p">
-                        {rebateStats.bondPremium.toFixed(3)}%
+                        {/* {rebateStats.bondPremium.toFixed(3)}% */}
+                        0%
                       </Typography>
                     </CardContent>
                   </Card>
@@ -161,10 +163,12 @@ const Cemetery = () => {
                         WLRS Vesting
                       </Typography>
                       <Typography variant="h6" component="p">
-                        {vested.toFixed(4)} Total Vested
+                        {/* {vested.toFixed(4)} Total Vested */}
+                        0 Total Vested
                       </Typography>
                       <Typography variant="h6" component="p">
-                        {claimable3omb.toFixed(4)} Claimable
+                        {/* {claimable3omb.toFixed(4)} Claimable */}
+                        0 Claimable
                       </Typography>
                       <Button
                         color="primary"
@@ -172,6 +176,7 @@ const Cemetery = () => {
                         variant="contained"
                         onClick={claimTomb}
                         style={{ marginTop: '8px' }}
+                        disabled
                       >
                         CLAIM
                       </Button>

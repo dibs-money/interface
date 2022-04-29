@@ -30,13 +30,20 @@ const CemeteryCard = () => {
             </div>
             <div>
               <span style={{ fontSize: '23px' }}>
-                {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} WLRS /{' '}
-                {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} UST
+                {/* {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} WLRS /{' '}
+                {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} UST */}
+                0 WLRS / 0 UST
               </span>
-              <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
+              <Box>
+                {/* ${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'} */}
+                $0
+              </Box>
               <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
-                Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
+                {/* Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
+                Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'} */}
+                Liquidity: $0
+                <br />
+                Total supply: 0
               </span>
             </div>
           </CardContent>
@@ -47,6 +54,7 @@ const CemeteryCard = () => {
               variant="contained"
               component={Link}
               to={`/farms/SnoJoeLPSnoShareRewardPool/`}
+              disabled
             >
               Farm
             </Button>
@@ -56,6 +64,7 @@ const CemeteryCard = () => {
               style={{ width: '150px', height: '45px', marginBottom: '5%' }}
               variant="contained"
               href="https://traderjoexyz.com/pool/0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D/0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd"
+              disabled
             >
               Add Liquidity
             </Button>
@@ -75,15 +84,22 @@ const CemeteryCard = () => {
             </div>
             <div>
               <span style={{ fontSize: '23px' }}>
-                {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} WSHARE /{' '}
-                {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} UST
+                {/* {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} WSHARE /{' '}
+                {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} UST */}
+                0 WSHARE / 0 UST
               </span>
 
-              <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
+              <Box>
+                {/* ${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'} */}
+                $0
+              </Box>
               <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
+                {/* Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
                 <br />
-                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'}
+                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'} */}
+                Liquidity: $0
+                <br />
+                Total supply: 0
               </span>
             </div>
           </CardContent>
@@ -94,6 +110,7 @@ const CemeteryCard = () => {
               variant="contained"
               component={Link}
               to={`/farms/SnoShareJoeLPSnoShareRewardPool/`}
+              disabled
             >
               Farm
             </Button>
@@ -103,6 +120,7 @@ const CemeteryCard = () => {
               style={{ width: '150px', height: '45px', marginBottom: '5%' }}
               variant="contained"
               href="https://traderjoexyz.com/pool/0xe7A102Fbc8AB3581d62830DdB599eCCaae5e7875/0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd"
+              disabled
             >
               Add Liquidity
             </Button>
@@ -122,14 +140,21 @@ const CemeteryCard = () => {
             </div>
             <div>
               <span style={{ fontSize: '23px' }}>
-                {snoSnoShareLPStats?.ftmAmount ? snoSnoShareLPStats?.ftmAmount : '-.--'} WLRS /{' '}
-                {snoSnoShareLPStats?.tokenAmount ? snoSnoShareLPStats?.tokenAmount : '-.--'} WSHARE
+                {/* {snoSnoShareLPStats?.ftmAmount ? snoSnoShareLPStats?.ftmAmount : '-.--'} WLRS /{' '}
+                {snoSnoShareLPStats?.tokenAmount ? snoSnoShareLPStats?.tokenAmount : '-.--'} WSHARE */}
+                0 WLRS / 0 WSHARE
               </span>
-              <Box>${snoSnoShareLPStats?.priceOfOne ? snoSnoShareLPStats.priceOfOne : '-.--'}</Box>
+              <Box>
+                {/* ${snoSnoShareLPStats?.priceOfOne ? snoSnoShareLPStats.priceOfOne : '-.--'} */}
+                $0
+              </Box>
               <span style={{ fontSize: '12px' }}>
-                Liquidity: ${snoSnoShareLPStats?.totalLiquidity ? snoSnoShareLPStats.totalLiquidity : '-.--'}
+                {/* Liquidity: ${snoSnoShareLPStats?.totalLiquidity ? snoSnoShareLPStats.totalLiquidity : '-.--'}
                 <br />
-                Total supply: {snoSnoShareLPStats?.totalSupply ? snoSnoShareLPStats.totalSupply : '-.--'}
+                Total supply: {snoSnoShareLPStats?.totalSupply ? snoSnoShareLPStats.totalSupply : '-.--'} */}
+                Liquidity: $0
+                <br />
+                Total supply: 0
               </span>
             </div>
           </CardContent>
@@ -140,6 +165,7 @@ const CemeteryCard = () => {
               variant="contained"
               component={Link}
               to={`/farms/SnoSnoShareLPSnoShareRewardPool/`}
+              disabled
             >
               Farm
             </Button>
@@ -149,6 +175,7 @@ const CemeteryCard = () => {
               style={{ width: '150px', height: '45px', marginBottom: '5%' }}
               variant="contained"
               href="https://traderjoexyz.com/pool/0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D/0xe7A102Fbc8AB3581d62830DdB599eCCaae5e7875"
+              disabled
             >
               Add Liquidity
             </Button>
@@ -168,11 +195,18 @@ const CemeteryCard = () => {
             </div>
             <div>
               SINGLE STAKE
-              <Box>${snoPrice?.priceInDollars ? snoPrice?.priceInDollars : '-.--'}</Box>
+              <Box>
+                {/* ${snoPrice?.priceInDollars ? snoPrice?.priceInDollars : '-.--'} */}
+                $0
+              </Box>
+              
               <span style={{ fontSize: '12px' }}>
-                Circulating Supply: ${snoPrice?.circulatingSupply ? snoPrice?.circulatingSupply : '-.--'}
+                {/* Circulating Supply: ${snoPrice?.circulatingSupply ? snoPrice?.circulatingSupply : '-.--'}
                 <br />
-                Total supply: {snoPrice?.totalSupply ? snoPrice.totalSupply : '-.--'}
+                Total supply: {snoPrice?.totalSupply ? snoPrice.totalSupply : '-.--'} */}
+                Liquidity: $0
+                <br />
+                Total supply: 0
               </span>
             </div>
           </CardContent>
@@ -183,6 +217,7 @@ const CemeteryCard = () => {
               variant="contained"
               component={Link}
               to={`/farms/SnoSnoShareRewardPool/`}
+              disabled
             >
               Farm
             </Button>
@@ -192,6 +227,7 @@ const CemeteryCard = () => {
               style={{ width: '150px', height: '45px', marginBottom: '5%' }}
               variant="contained"
               href="https://traderjoexyz.com/trade?inputCurrency=0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd&outputCurrency=0x1fE4869f2C5181b9CD780a7E16194FA2c4C4293D"
+              disabled
             >
               Buy WLRS
             </Button>

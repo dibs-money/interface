@@ -89,13 +89,20 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
               <Button
                 color="primary"
                 variant="contained"
-                disabled={approveStatus === ApprovalState.PENDING || approveStatus === ApprovalState.UNKNOWN}
+                // disabled={approveStatus === ApprovalState.PENDING || approveStatus === ApprovalState.UNKNOWN}
                 onClick={() => catchError(approve(), `Unable to approve ${fromTokenName}`)}
+                disabled
               >
                 {`Approve ${fromTokenName}`}
               </Button>
             ) : (
-              <Button color="primary" variant="contained" onClick={onPresent} disabled={disabled}>
+              <Button 
+                color="primary"
+                variant="contained"
+                onClick={onPresent}
+                // disabled={disabled}
+                disabled
+              >
                 {disabledDescription || action}
               </Button>
             )}

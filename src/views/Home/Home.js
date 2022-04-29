@@ -159,7 +159,8 @@ const Home = () => {
             >
               <div>
                 <h1>Total Value Locked</h1>
-                <CountUp style={{ fontSize: '40px' }} end={TVL} separator="," prefix="$" />
+                {/* <CountUp style={{ fontSize: '40px' }} end={TVL} separator="," prefix="$" /> */}
+                <div style={{fontSize: 40}}>$0</div>
               </div>
               <img
                 src={`${tvl}`}
@@ -179,14 +180,21 @@ const Home = () => {
               </div>
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
-                  {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} WLRS /{' '}
-                  {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} UST
+                  {/* {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} WLRS /{' '}
+                  {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} UST */}
+                 0 WLRS / 0 UST
                 </span>
               </Box>
-              <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
+              <Box>
+                {/* ${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'} */}
+                $0
+              </Box>
               <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
-                Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
+                {/* Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
+                Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'} */}
+                Liquidity: $0
+                <br />
+                Total supply: 0
               </span>
             </CardContent>
           </Card>
@@ -200,15 +208,22 @@ const Home = () => {
               </div>
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
-                  {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} WSHARE /{' '}
-                  {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} UST
+                  {/* {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} WSHARE /{' '}
+                  {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} UST */}
+                  0 WSHARE / 0 UST
                 </span>
               </Box>
-              <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
+              <Box>
+                {/* ${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'} */}
+                $0
+              </Box>
               <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
+                {/* Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
                 <br />
-                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'}
+                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'} */}
+                Liquidity: $0
+                <br />
+                Total supply: 0
               </span>
             </CardContent>
           </Card>
@@ -223,7 +238,10 @@ const Home = () => {
               <h2 align="center">UST</h2>
               <p align="center">Current Price</p>
               <Box align="center">
-                <span style={{ fontSize: '30px' }}>${JOEPrice ? JOEPrice : '-.----'}</span>
+                <span style={{ fontSize: '30px' }}>
+                  {/* ${JOEPrice ? JOEPrice : '-.----'} */}
+                  $0
+                </span>
               </Box>
               <Box align="center" marginBottom={3}>
                 &nbsp;
@@ -236,8 +254,10 @@ const Home = () => {
                   &nbsp;
                 </span>
                 <span style={{ fontSize: '14px', textAlign: 'right' }}>
-                  ${JOEMarketCap} <br />
-                  {JOEPriceChange.toFixed(2)}% <br />
+                  {/* ${JOEMarketCap} <br />
+                  {JOEPriceChange.toFixed(2)}% <br /> */}
+                  $0 <br />
+                  %0 <br />
                   &nbsp;
                 </span>
               </Row>
@@ -249,6 +269,7 @@ const Home = () => {
                   variant="contained"
                   style={{ marginTop: '10px', borderRadius: '10px', width: '100%' }}
                   className={classes.button}
+                  disabled
                 >
                   Purchase
                 </Button>
@@ -266,13 +287,15 @@ const Home = () => {
               <p align="center">Current Price</p>
               <Box align="center">
                 <span style={{ fontSize: '30px' }}>
-                  {tombPriceInFTM ? tombPriceInFTM : '-.----'}{' '}
+                  {/* {tombPriceInFTM ? tombPriceInFTM : '-.----'}{' '} */}
+                  0
                   <img alt="logo" style={{ width: '30px' }} src={AvaxLogo} />
                 </span>
               </Box>
               <Box align="center" marginBottom={3}>
                 <span style={{ fontSize: '16px', alignContent: 'flex-start' }}>
-                  ${tombPriceInDollars ? tombPriceInDollars : '-.--'}
+                  {/* ${tombPriceInDollars ? tombPriceInDollars : '-.--'} */}
+                  $0
                 </span>
               </Box>
               <Row>
@@ -283,9 +306,12 @@ const Home = () => {
                   Total Supply:
                 </span>
                 <span style={{ fontSize: '14px', textAlign: 'right' }}>
-                  ${((tombCirculatingSupply - 20000) * tombPriceInDollars).toFixed(2)} <br />
+                  {/* ${((tombCirculatingSupply - 20000) * tombPriceInDollars).toFixed(2)} <br />
                   {tombCirculatingSupply - 20000} <br />
-                  {tombTotalSupply}
+                  {tombTotalSupply} */}
+                  $0 <br />
+                  0 <br />
+                  0
                 </span>
               </Row>
               <Box>
@@ -296,6 +322,7 @@ const Home = () => {
                   variant="contained"
                   style={{ marginTop: '10px', borderRadius: '10px', width: '100%' }}
                   className={classes.button}
+                  disabled
                 >
                   Purchase
                 </Button>
@@ -313,12 +340,16 @@ const Home = () => {
               <p align="center">Current Price</p>
               <Box align="center">
                 <span style={{ fontSize: '30px' }}>
-                  {tSharePriceInFTM ? tSharePriceInFTM : '-.----'}{' '}
+                  {/* {tSharePriceInFTM ? tSharePriceInFTM : '-.----'}{' '} */}
+                  0
                   <img alt="logo" style={{ width: '30px' }} src={AvaxLogo} />
                 </span>
               </Box>
               <Box align="center" marginBottom={3}>
-                <span style={{ fontSize: '16px' }}>${tSharePriceInDollars ? tSharePriceInDollars : '-.--'}</span>
+                <span style={{ fontSize: '16px' }}>
+                  {/* ${tSharePriceInDollars ? tSharePriceInDollars : '-.--'} */}
+                  $0
+                </span>
               </Box>
               <Row>
                 <span style={{ fontSize: '14px' }}>
@@ -327,9 +358,12 @@ const Home = () => {
                   Total Supply:
                 </span>
                 <span style={{ fontSize: '14px', textAlign: 'right' }}>
-                  ${(tShareCirculatingSupply * tSharePriceInDollars).toFixed(2)} <br />
+                  {/* ${(tShareCirculatingSupply * tSharePriceInDollars).toFixed(2)} <br />
                   {tShareCirculatingSupply} <br />
-                  {tShareTotalSupply}
+                  {tShareTotalSupply} */}
+                  $0 <br />
+                  0 <br />
+                  0
                 </span>
               </Row>
               <Box>
@@ -340,6 +374,7 @@ const Home = () => {
                   variant="contained"
                   style={{ marginTop: '10px', borderRadius: '10px', width: '100%' }}
                   className={classes.button}
+                  disabled
                 >
                   Purchase
                 </Button>
@@ -357,12 +392,16 @@ const Home = () => {
               <p align="center">Current Price</p>
               <Box align="center">
                 <span style={{ fontSize: '30px' }}>
-                  {tBondPriceInFTM ? tBondPriceInFTM : '-.----'}{' '}
+                  {/* {tBondPriceInFTM ? tBondPriceInFTM : '-.----'}{' '} */}
+                  0
                   <img alt="logo" style={{ width: '30px' }} src={AvaxLogo} />
                 </span>
               </Box>
               <Box align="center" marginBottom={3}>
-                <span style={{ fontSize: '16px' }}>${tBondPriceInDollars ? tBondPriceInDollars : '-.--'}</span>
+                <span style={{ fontSize: '16px' }}>
+                  {/* ${tBondPriceInDollars ? tBondPriceInDollars : '-.--'} */}
+                  $0
+                </span>
               </Box>
               <Row>
                 <span style={{ fontSize: '14px' }}>
@@ -371,9 +410,12 @@ const Home = () => {
                   Total Supply:
                 </span>
                 <span style={{ fontSize: '14px', textAlign: 'right' }}>
-                  ${(tBondCirculatingSupply * tBondPriceInDollars).toFixed(2)} <br />
+                  {/* ${(tBondCirculatingSupply * tBondPriceInDollars).toFixed(2)} <br />
                   {tBondCirculatingSupply} <br />
-                  {tBondTotalSupply}
+                  {tBondTotalSupply} */}
+                  $0 <br />
+                  0 <br />
+                  0
                 </span>
               </Row>
               <Box>
@@ -384,6 +426,7 @@ const Home = () => {
                   variant="contained"
                   style={{ marginTop: '10px', borderRadius: '10px', width: '100%' }}
                   className={classes.button}
+                  disabled
                 >
                   Bond
                 </Button>

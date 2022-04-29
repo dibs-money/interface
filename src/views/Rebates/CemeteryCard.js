@@ -105,10 +105,11 @@ const CemeteryCard = ({ bank }) => {
       <CardActions>
         {approveStatus !== ApprovalState.APPROVED ? (
           <Button
-            disabled={approveStatus !== ApprovalState.NOT_APPROVED}
+            // disabled={approveStatus !== ApprovalState.NOT_APPROVED}
             variant="contained"
             color="primary"
             onClick={approve}
+            disabled
           >
             Approve{' '}
             {bank.depositTokenName === 'SNOSHARE-JOE-LP'
@@ -118,7 +119,7 @@ const CemeteryCard = ({ bank }) => {
               : ''}
           </Button>
         ) : (
-          <Button color="primary" size="small" variant="contained" onClick={onPresentDeposit}>
+          <Button color="primary" size="small" variant="contained" onClick={onPresentDeposit} disabled>
             Bond
           </Button>
         )}
